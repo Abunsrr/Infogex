@@ -1,0 +1,60 @@
+<div class="modal" id="business-modal">
+    <div class="modal-dialog" style="max-width: 80%; min-width: 500px;">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+               
+                <h4 class="modal-title">Additional Information</h4>
+                  
+            <div class="info-btn">
+                <a href="" class="me-2"><button  type="button" class="  bg-primary
+                    px-sm-5 btn btn-primary btn-square carousel-content-btn1 animated 
+                    fadeInLeft">Download Brochure</button></a>
+
+                    <a  href="" class="me-2"><button  type="button" class=" bg-secondary 
+                        px-sm-5 btn btn-primary btn-square carousel-content-btn1 animated 
+                        fadeInLeft">customer support</button></a>
+                </div> 
+                    
+                <button type="button" class="close" data-modal="business-modal">&times;</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body" style="max-height: 60vh; overflow-y: auto;">
+                <!-- Add your additional information content here -->
+                <!-- Example: <p>Additional information goes here.</p> -->
+                <h2>Business Services</h2>
+                <div>
+    
+                   
+    
+    <p><strong>1. Consulting Services:</strong> Our experienced consultants offer expert advice to help your business make informed decisions.</p>
+    
+    <p><strong>2. Financial Planning:</strong> We provide financial planning services to secure your company's financial future and growth.</p>
+    
+    <p><strong>3. Legal Assistance:</strong> Our legal experts can assist with contracts, compliance, and any legal matters your business may face.</p>
+    
+    <p><strong>4. Human Resources Support:</strong> We offer HR services, including recruitment, training, and employee management.</p>
+    
+    <p><strong>5. Marketing and Branding:</strong> Our marketing team can help you create and promote your brand effectively.</p>
+    
+    <p><strong>6. IT Solutions:</strong> We provide IT services, including network management, cybersecurity, and software development.</p>
+    
+    <p><strong>7. Tax and Accounting:</strong> Our tax experts can help with tax planning, preparation, and financial accounting services.</p>
+    
+    <p><strong>8. Business Strategy:</strong> We work with you to develop and execute business strategies to achieve your goals.</p>
+    
+    <p><strong>9. Project Management:</strong> Our project managers ensure the successful execution of projects, on time and on budget.</p>
+    
+    <p><strong>10. Customer Support:</strong> We offer customer support solutions to enhance customer satisfaction and retention.</p>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- software testing  modal-->
+
+

@@ -1,0 +1,30 @@
+<div class="container-fluid px-0">
+    <div id="carouselId" class="carousel slide" data-bs-ride="carousel"  data-bs-interval="3000" >
+       
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+                <img src="img/project-3.jpg" class="img-fluid " 
+        
+                alt="First slide">
+                <div class="carousel-caption">
+                    <div class="container carousel-content">
+                        <!-- <h6 class="text-secondary h4 animated fadeInUp">Best IT Solutions</h6> -->
+                        <h1  style="color: rgb(117, 230, 230); font-size: 3rem;" class="mb-4 animated fadeInRight">About Us</h1>
+                        <p class="mb-4 text-white fs-5 animated fadeInDown">"Get to Know Infogex: Our Company and Team at a Glance"  
+                        </p>
+
+                        <a href="" class="me-2"><button  type="button" class="px-4 py-sm-3
+                             px-sm-5 btn btn-primary rounded-pill carousel-content-btn1 animated 
+                             fadeInLeft">Vision & Mission</button></a>
+
+                        <a href="" class="ms-2"><button type="button" class="px-4 
+                            py-sm-3 px-sm-5 btn btn-primary rounded-pill carousel-content-btn2
+                             animated fadeInRight"> Carrer and Referral</button></a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>

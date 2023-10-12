@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>InfoGex - IT Solutions</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Saira:wght@500;600;700&display=swap" rel="stylesheet"> 
+
+        <!-- Icon Font Stylesheet -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+       <!-- Owl Carousel CSS and JavaScript CDNs -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+        
+        <!-- Libraries Stylesheet
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet"> -->
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+       
+        <!-- script -->
+        <!-- <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script> -->
+
+        <!-- favicon -->
+        <link rel="apple-touch-icon" sizes="144x144" href="favicon_p/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon_p/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon_p/favicon-16x16.png">
+<link rel="manifest" href="favicon_p/site.webmanifest">
+<link rel="mask-icon" href="favicon_p/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+    </head>
+<style>
+    
+    .keywords {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-top: 20px;
+    }
+
+    .keyword-box {
+        background-color: #f0f0f0;
+        padding: 5px 10px;
+        margin: 0 10px 10px 0;
+        border-radius: 5px;
+    }
+
+    .keyword {
+        font-weight: bold;
+    }
+
+
+    /* blog box */
+   
+    .blog-container2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 50px 10px 50px;
+  
+}
+
+.blog-box {
+  width: calc(33.33% - 20px);
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-left: 3px;
+}
+
+.blog-thumbnail2 img {
+  max-width: 100%;
+  height: auto;
+}
+
+.blog-content2 {
+  margin-top: 10px;
+}
+
+.blog-date2 {
+  font-size: 14px;
+  color: #999;
+}
+
+.blog-title2 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.blog-intro2 {
+  font-size: 14px;
+}
+
+.read-more2 {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.read-more2:hover {
+  background-color: #0056b3;
+}
+
+/* Style for hidden blog boxes */
+.hidden-blog-boxes-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: space-between;
+    margin-top: 20px;
+    display: none; /* Initially hidden */
+}
+
+/* Additional styling for hidden blog boxes, adjust as needed */
+.hidden-blog-boxes-wrapper .blog-box {
+    width: calc(33.33% - 10px);
+}
+
+
+#see-more-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+}
+
+#see-more-button:hover {
+    background-color: #556c84;
+    
+}
+
+.blog-thumbnail2 img{
+    width: 70%;
+    height: 50%;
+    display: none;
+}
+
+.keyword-box a{
+color: rgb(8, 76, 76);
+font-size: .8rem;
+}
+
+
+
+/* Media Queries for Responsive Design */
+
+@media screen and (max-width: 768px) {
+  .blog-box {
+     width: calc(80% - 20px); 
+    /* width: 100%;
+    margin-left: 30px;
+    margin-right: 30px; */
+  }
+
+  .hidden-blog-boxes-wrapper .blog-box {
+    width: 100%;
+    
+  
+}
+  
+}
+
+@media screen and (max-width: 576px) {
+  .blog-box {
+    width: 100%;
+  }
+
+  .hidden-blog-boxes-wrapper .blog-box {
+    width: 100%;
+    
+  
+}
+}
+
+
+    
+</style>
+
+
+    <body>
+        <!-- Spinner Start -->
+        <!-- <div id="spinner" class="show position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" role="status"></div>
+        </div> -->
+        <!-- Spinner End -->
+
+        <!-- Topbar Start -->
+        
+        
+            <div class="container-fluid bg-dark py-2 d-none d-md-flex">
+            <div class="container">
+                <div class="d-flex justify-content-between topbar">
+                    <div class="top-info">
+                        <small class="me-3 text-white-50"><a href="#"><i class="fas fa-map-marker-alt me-2 text-secondary"></i></a>Street 13, Aliganj Gaya, Bihar</small>
+                        <br>
+                        <small class="me-3 text-white-50"><a href="#"><i class="fas fa-envelope me-2 text-secondary"></i></a>infogexsolutions@gmail.com</small>
+                    </div>
+                    <div id="note" class="text-secondary d-none d-xl-flex"><small>Note : We help you to Grow your Business</small></div>
+                    <div class="top-link">
+                        <a href="" class="bg-light nav-fill btn btn-sm-square rounded-circle"><i class="fab fa-facebook-f text-primary"></i></a>
+                        <a href="" class="bg-light nav-fill btn btn-sm-square rounded-circle"><i class="fab fa-twitter text-primary"></i></a>
+                        <a href="" class="bg-light nav-fill btn btn-sm-square rounded-circle"><i class="fab fa-instagram text-primary"></i></a>
+                        <a href="" class="bg-light nav-fill btn btn-sm-square rounded-circle me-0"><i class="fab fa-linkedin-in text-primary"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Topbar End -->
+
+        <!-- Navbar Start -->
+        <div  style="background-color: rgb(27, 74, 103);" class=" container-fluid">
+            <div class="container">
+                <nav class="navbar navbar-dark navbar-expand-lg py-0">
+                    <a href="index.html" class="navbar-brand">
+                        <h1 class="text-white fw-bold d-block">Info<span class="text-secondary">Gex</span> </h1>
+                    </a>
+                    <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse bg-transparent" id="navbarCollapse">
+                        <div class="navbar-nav ms-auto mx-xl-auto p-0">
+                            <a href="index.html" class="nav-item nav-link">Home</a>
+                            <a href="about.html" class="nav-item nav-link ">About</a>
+                            <a href="service.html" class="nav-item nav-link ">Services</a>
+                            <a href="blog.html" class="nav-item nav-link active text-secondary">Blogs</a>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                                <div class="dropdown-menu rounded">
+                                    <a href="blog.html" class="dropdown-item">Our Blog</a>
+                                    <a href="team.html" class="dropdown-item">Our Team</a>
+                                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                                    <a href="404.html" class="dropdown-item">404 Page</a>
+                                </div>
+                            </div>
+                            <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        </div>
+                    </div>
+                    <div class="d-none d-xl-flex flex-shirink-0">
+                        <div id="phone-tada" class="d-flex align-items-center justify-content-center me-4">
+                            <a href="" class="position-relative animated tada infinite">
+                                <i class="fa fa-phone-alt text-white fa-2x"></i>
+                                <div class="position-absolute" style="top: -7px; left: 20px;">
+                                    <span><i class="fa fa-comment-dots text-secondary"></i></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="d-flex flex-column pe-4 border-end">
+                            <span class="text-white-50">Have any questions?</span>
+                            <span class="text-secondary"> <span class="text-white">Call :</span> 7484081859</span>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center ms-4 ">
+                            <a href="#"><i class="bi bi-search text-white fa-2x"></i> </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        
+        <!-- Page Header Start -->
+        <!-- <div class="container-fluid page-header py-5">
+            <div class="container text-center py-5">
+                <h1 class="display-2 text-white mb-4 animated slideInDown">About Us</h1>
+                 <nav aria-label="breadcrumb animated slideInDown">
+                    <ol class="breadcrumb justify-content-center mb-0">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="breadcrumb-item" aria-current="page">About</li>
+                    </ol>
+                </nav>
+            </div>
+        </div> -->
+
+<!-- coursol -->
+
+<div class="container-fluid px-0">
+    <div id="carouselId" class="carousel slide" data-bs-ride="carousel"  data-bs-interval="3000" >
+       
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+                <img src="img/project-3.jpg" class="img-fluid " 
+        
+                alt="First slide">
+                <div class="carousel-caption">
+                    <div class="container carousel-content">
+                        <!-- <h6 class="text-secondary h4 animated fadeInUp">Best IT Solutions</h6> -->
+                        <h1  style="color: rgb(117, 230, 230); font-size: 3rem;" class="mb-4 animated fadeInRight">Blogs</h1>
+                        <p class="mb-4 text-white fs-5 animated fadeInDown">Expand your knowledge by exploring our Blog.  
+                        </p>
+
+                        <a href="" class="me-2"><button  type="button" class="px-4 py-sm-3
+                             px-sm-5 btn btn-primary rounded-pill carousel-content-btn1 animated 
+                             fadeInLeft">Technical blogs</button></a>
+
+                        <a href="" class="ms-2"><button type="button" class="px-4 
+                            py-sm-3 px-sm-5 btn btn-primary rounded-pill carousel-content-btn2
+                             animated fadeInRight">Jobs and Career</button></a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+        <!-- Page Header End -->
+        
+<!-- fact start -->
+
+         <div id="fact" style="background-color: rgb(45, 65, 65);" class="container-fluid py-3">
+            <div id="fact-cont" class="container">
+              <div class="row">
+                <div class="col-lg-3 wow fadeIn" data-wow-delay=".1s">
+                  <div id="fact1" class="d-flex counter">
+                    <h1 class="me-3 text-primary counter-value">0</h1>
+                    <h5 class="text-white mt-1">Success in getting happy customer</h5>
+                  </div>
+                </div>
+                <div class="col-lg-3 wow fadeIn" data-wow-delay=".1s">
+                  <div id="fact2" class="d-flex counter">
+                    <h1 class="me-3 text-primary counter-value">0</h1>
+                    <h5 class="text-white mt-1">Hundred of successful business</h5>
+                  </div>
+                </div>
+                <div class="col-lg-3 wow fadeIn" data-wow-delay=".1s">
+                  <div id="fact3" class="d-flex counter">
+                    <h1 class="me-3 text-primary counter-value">0</h1>
+                    <h5 class="text-white mt-1">Total clients who love HighTech</h5>
+                  </div>
+                </div>
+                <div class="col-lg-3 wow fadeIn" data-wow-delay=".1s">
+                  <div id="fact4" class="d-flex counter">
+                    <h1 class="me-3 text-primary counter-value">0</h1>
+                    <h5 class="text-white mt-1">Stars reviews given by satisfied clients</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <!-- Fact End -->
+
+
+       <div class="container-fluid testimonial py-5 mb-5">
+            <div class="container">
+                <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
+                    <h5 style="font-size: 2rem;" class="text-primary">Our Blog</h5>
+                   
+                </div>
+
+                <div  class="owl-carousel testimonial-carousel wow fadeIn  "  data-wow-delay=".0s" id="blog-carousel" >
+                    
+                    <!-- blog 1 -->
+                    <div id="blog-style"  class="testimonial-item  border p-4">
+                        <div class="d-flex align-items-center">
+                            
+                            <div class="ms-4">
+                                <h4 class="text-secondary">web design</h4>
+                                <p class="m-0 pb-3">24/03/2021</p>
+                                <div class="d-flex pe-5">
+                                    <i class="fas fa-star me-1 text-primary"></i>
+                                    <i class="fas fa-star me-1 text-primary"></i>
+                                    <i class="fas fa-star me-1 text-primary"></i>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-top mt-4 pt-3">
+                            <p style="padding-bottom: 100px;" class="mb-0">Web design is like creating a beautiful and user-friendly online space. It's a mix of art and tech, making websites look great and work well. Let's explore the magic of web design!</p>
+                        </div>
+
+        <!-- share and read more start -->
+                                           
+        <div class=" icon-blog blog-btn d-flex justify-content-between position-relative px-3" style="margin-top: -75px;">
+            <div class="blog-icon btn btn-secondary px-3 rounded-pill my-auto">
+                <a id="blog-more"  href="" class="btn text-white">Read More</a>
+            </div>
+            <div class="blog-btn-icon btn btn-secondary px-4 py-3 rounded-pill ">
+                <div class="blog-icon-1">
+                    <p id="blog-more"   class="text-white px-2">Share</p>
+                </div>
+                <div class="blog-icon-2">
+                    <a href="" class="btn me-1"><i class="fab fa-facebook-f text-white"></i></a>
+                    <a href="" class="btn me-1"><i class="fab fa-twitter text-white"></i></a>
+                    <a href="" class="btn me-1"><i class="fab fa-instagram text-white"></i></a>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 5px;" class="blog-coment d-flex justify-content-between px-4 py-2 border bg-primary rounded-bottom">
+            <a href="" class="text-white"><small><i class="fas fa-share me-2 text-secondary"></i>532 Share</small></a>
+            <a href="" class="text-white"><small><i class="fa fa-comments me-2 text-secondary"></i>5 Comments</small></a>
+        </div>
+
+        <!-- end of share and read more -->
+                  </div>
+
+                      <!-- blog 2 -->
+                      <div id="blog-style" class="testimonial-item border p-4">
+                        <div class="d-flex align-items-center">
+                            
+                            <div class="ms-4">
+                                <h4 class="text-secondary">The Rising Power of Artificial Intelligence</h4>
+                                <p class="m-0 pb-3">01/08/2022</p>
+                                <div class="d-flex pe-5">
+                                    <i class="fas fa-star me-1 text-primary"></i>
+                                    <i class="fas fa-star me-1 text-primary"></i>
+                                    <i class="fas fa-star me-1 text-primary"></i>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-top mt-4 pt-3">
+                            <p style="padding-bottom: 100px; font-size: .9rem;" class="mb-0">Imagine computers that can think and learn like humans. 
+                                That's what Artificial Intelligence (AI) is all about! In this blog,
+                                 we'll explore how AI is making our lives better and what the future holds</p>
+                        </div>
+
+        <!-- share and read more start -->
+                                           
+        <div class=" icon-blog blog-btn d-flex justify-content-between position-relative px-3" style="margin-top: -75px;">
+            <div class="blog-icon btn btn-secondary px-3 rounded-pill my-auto">
+                <a href="" class="btn text-white">Read More</a>
+            </div>
+            <div class="blog-btn-icon btn btn-secondary px-4 py-3 rounded-pill ">
+                <div class="blog-icon-1">
+                    <p class="text-white px-2">Share</p>
+                </div>
+                <div class="blog-icon-2">
+                    <a href="" class="btn me-1"><i class="fab fa-facebook-f text-white"></i></a>
+                    <a href="" class="btn me-1"><i class="fab fa-twitter text-white"></i></a>
+                    <a href="" class="btn me-1"><i class="fab fa-instagram text-white"></i></a>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 5px;" class="blog-coment d-flex justify-content-between px-4 py-2 border bg-primary rounded-bottom">
+            <a href="" class="text-white"><small><i class="fas fa-share me-2 text-secondary"></i>5324 Share</small></a>
+            <a href="" class="text-white"><small><i class="fa fa-comments me-2 text-secondary"></i>5 Comments</small></a>
+        </div>
+
+        <!-- end of share and read more -->
+                  </div>
+
+
+                     <!-- blog 3 -->
+                     <div id="blog-style" class="testimonial-item border p-4">
+                        <div class="d-flex align-items-center">
+                            
+                            <div class="ms-4">
+                                <h4 class="text-secondary">Digital Market</h4>
+                                <p class="m-0 pb-3">01/06/2022</p>
+                                <div class="d-flex pe-5">
+                                    <i class="fas fa-star me-1 text-primary"></i>
+                                    <i class="fas fa-star me-1 text-primary"></i>
+                                    <i class="fas fa-star me-1 text-primary"></i>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-top mt-4 pt-3">
+                            <p style="padding-bottom: 100px;" class="mb-0">n today's fast-paced digital landscape, navigating the 
+                                intricacies of digital marketing is crucial for businesses seeking success.
+                                 Join us on a journey through the dynamic world of digital marketing strategies and trends.</p>
+                        </div>
+
+        <!-- share and read more start -->
+                                           
+        <div class=" icon-blog blog-btn d-flex justify-content-between position-relative px-3" style="margin-top: -75px;">
+            <div class="blog-icon btn btn-secondary px-3 rounded-pill my-auto">
+                <a href="" class="btn text-white">Read More</a>
+            </div>
+            <div class="blog-btn-icon btn btn-secondary px-4 py-3 rounded-pill ">
+                <div class="blog-icon-1">
+                    <p class="text-white px-2">Share</p>
+                </div>
+                <div class="blog-icon-2">
+                    <a href="" class="btn me-1"><i class="fab fa-facebook-f text-white"></i></a>
+                    <a href="" class="btn me-1"><i class="fab fa-twitter text-white"></i></a>
+                    <a href="" class="btn me-1"><i class="fab fa-instagram text-white"></i></a>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 5px;" class="blog-coment d-flex justify-content-between px-4 py-2 border bg-primary rounded-bottom">
+            <a href="" class="text-white"><small><i class="fas fa-share me-2 text-secondary"></i>5324 Share</small></a>
+            <a href="" class="text-white"><small><i class="fa fa-comments me-2 text-secondary"></i>5 Comments</small></a>
+        </div>
+
+        <!-- end of share and read more -->
+                  </div>
+                       <!-- blog 4 -->
+                     
+                       <div id="blog-style" class="testimonial-item border p-4">
+                        <div class="d-flex align-items-center">
+                            
+                            <div class="ms-4">
+                                <h4 class="text-secondary">The Impact of Technology on Society</h4>
+                                <p class="m-0 pb-3">2/03/2023</p>
+                                <div class="d-flex pe-5">
+                                    <i class="fas fa-star me-1 text-primary"></i>
+                                    <i class="fas fa-star me-1 text-primary"></i>
+                                    <i class="fas fa-star me-1 text-primary"></i>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-top mt-4 pt-3">
+                            <p style="padding-bottom: 100px;" class="mb-0">
+                                Delve into the effects of technology on our lives, from enhanced
+                                 convenience to potential drawbacks, in this thought-provoking analysis.</p>
+                        </div>
+
+        <!-- share and read more start -->
+                                           
+        <div class=" icon-blog blog-btn d-flex justify-content-between position-relative px-3" style="margin-top: -75px;">
+            <div class="blog-icon btn btn-secondary px-3 rounded-pill my-auto">
+                <a href="" class="btn text-white">Read More</a>
+            </div>
+            <div class="blog-btn-icon btn btn-secondary px-4 py-3 rounded-pill ">
+                <div class="blog-icon-1">
+                    <p class="text-white px-2">share</p>
+                </div>
+                <div class="blog-icon-2">
+                    <a href="" class="btn me-1"><i class="fab fa-facebook-f text-white"></i></a>
+                    <a href="" class="btn me-1"><i class="fab fa-twitter text-white"></i></a>
+                    <a href="" class="btn me-1"><i class="fab fa-instagram text-white"></i></a>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 5px;" class="blog-coment d-flex justify-content-between px-4 py-2 border bg-primary rounded-bottom">
+            <a href="" class="text-white"><small><i class="fas fa-share me-2 text-secondary"></i>5324 Share</small></a>
+            <a href="" class="text-white"><small><i class="fa fa-comments me-2 text-secondary"></i>5 Comments</small></a>
+        </div>   
+          </div>
+                      
+
+
+                     <!-- blog 5..... -->
+                </div>
+            </div>
+        </div>
+
+    <!-- Technical blog post -->
+<div class="blog-content">
+    <!-- Blog content goes here -->
+          <h3  style="text-align: center;" class="text-secondary" >Technical Blog</h3>
+    <div class="blog-container2">
+     
+        <div class="blog-box">
+          <div class="blog-thumbnail2">
+            <img src="blog1.jpg" alt="Blog 1 Thumbnail">
+          </div>
+          <div class="blog-content2">
+            <span class="blog-date2">09/03/2023</span>
+            <h3 class="blog-title2">Cybersecurity in the Digital Age</h3>
+            <p class="blog-intro2">Protecting Your Data and Privacy" - Dive into the
+                 world of cybersecurity, understanding the importance of safeguarding your digital assets with advanced software solutions.
+                </p>
+            <a href="#" class="read-more2">Read More</a>
+          </div>
+        </div>
+        
+        <div class="blog-box">
+          <div class="blog-thumbnail2">
+            <img src="blog2.jpg" alt="Blog 2 Thumbnail">
+          </div>
+          <div class="blog-content2">
+            <span class="blog-date2">27/06/2023</span>
+            <h3 class="blog-title2">Open Source Software</h3>
+            <p class="blog-intro2">Advantages, Challenges, and Impact on Tech Communities" - Delve into the world of open-source software, examining its benefits,
+                 challenges, and influence on collaborative tech communities.
+               </p>
+            <a href="#" class="read-more2">Read More</a>
+          </div>
+        </div>
+        
+      
+        <div class="blog-box">
+            <div class="blog-thumbnail2">
+              <img src="img/blog-1.jpg" alt="Blog 3 Thumbnail">
+            </div>
+            <div class="blog-content2">
+              <span class="blog-date2">01/06/2023</span>
+              <h3 class="blog-title2">User Interface (UI) and User Experience (UX) Design</h3>
+              <p class="blog-intro2">Crafting Intuitive Software" - Explore the significance of UI/UX design in 
+                creating user-friendly software and driving customer satisfaction.</p>
+              <a href="#" class="read-more2">Read More</a>
+            </div>
+          </div>
+
+          <div class="hidden-blog-boxes-wrapper">
+            <!-- Blog box 4 -->
+            <div class="blog-box">
+                
+                    <div class="blog-thumbnail2">
+                      <img src="blog2.jpg" alt="Blog 4 Thumbnail">
+                    </div>
+                    <div class="blog-content2">
+                      <span class="blog-date2">01/08/2022</span>
+                      <h3 class="blog-title2">Software as a Service (SaaS)</h3>
+                      <p class="blog-intro2"> Revolutionizing Business Software Deployment" - 
+                        Learn how SaaS models are reshaping the way businesses access and utilize software, driving innovation and cost-efficiency.</p>
+                      <a href="#" class="read-more2">Read More</a>
+                    </div>
+                  
+            </div>
+    
+            <!-- Blog box 5 -->
+            <div class="blog-box">
+                <!-- ... (Content for Blog 5) -->
+                <div class="blog-thumbnail2">
+                    <img src="blog2.jpg" alt="Blog 5 Thumbnail">
+                  </div>
+                  <div class="blog-content2">
+                    <span class="blog-date2">11/06/2023</span>
+                    <h3 class="blog-title2">Automation Testing</h3>
+                    <p class="blog-intro2"> Software testing is the systematic process of evaluating a
+                       software application to identify and fix defects, ensuring its quality,
+                       reliability, and functionality meet the intended requirements."</p>
+                    <a href="#" class="read-more2">Read More</a>
+                  </div>
+            </div>
+    
+            <!-- Blog box 6 -->
+            <div class="blog-box">
+                <!-- ... (Content for Blog 6) -->
+                <div class="blog-thumbnail2">
+                    <img src="blog2.jpg" alt="Blog 5 Thumbnail">
+                  </div>
+                  <div class="blog-content2">
+                    <span class="blog-date2">15/04/2023</span>
+                    <h3 class="blog-title2">Manual Testing</h3>
+                    <p class="blog-intro2"> Software testing is the systematic process of evaluating a
+                       software application to identify and fix defects, ensuring its quality,
+                       reliability, and functionality meet the intended requirements."</p>
+                    <a href="#" class="read-more2">Read More</a>
+                  </div>
+            </div>
+
+
+             <!-- Blog box 7-->
+             <div class="blog-box">
+                <!-- ... (Content for Blog 7) -->
+                <div class="blog-thumbnail2">
+                    <img src="blog2.jpg" alt="Blog 5 Thumbnail">
+                  </div>
+                  <div class="blog-content2">
+                    <span class="blog-date2">16/03/2023</span>
+                    <h3 class="blog-title2">Blockchain Technology</h3>
+                    <p class="blog-intro2"> Beyond Cryptocurrency - Applications in Software" - Go beyond cryptocurrencies and explore the diverse applications
+                         of blockchain technology in software development and beyond.</p>
+                    <a href="#" class="read-more2">Read More</a>
+                  </div>
+            </div>
+
+
+             <!-- Blog box 8 -->
+             <div class="blog-box">
+                <!-- ... (Content for Blog 8) -->
+                <div class="blog-thumbnail2">
+                    <img src="blog2.jpg" alt="Blog 5 Thumbnail">
+                  </div>
+                  <div class="blog-content2">
+                    <span class="blog-date2">17/04/2023</span>
+                    <h3 class="blog-title2">The Psychology of Happiness</h3>
+                    <p class="blog-intro2">  Unlocking the Secrets to a Fulfilling Life" - Explore the science of happiness and 
+                        discover actionable strategies for leading a more joyful and contented life.</p>
+                    <a href="#" class="read-more2">Read More</a>
+                  </div>
+            </div>
+
+
+
+             <!-- Blog box 9 -->
+             <div class="blog-box">
+                <!-- ... (Content for Blog 9) -->
+                <div class="blog-thumbnail2">
+                    <img src="blog2.jpg" alt="Blog 5 Thumbnail">
+                  </div>
+                  <div class="blog-content2">
+                    <span class="blog-date2">18/09/2023</span>
+                    <h3 class="blog-title2">Art of Time Management</h3>
+                    <p class="blog-intro2">Take control of your schedule and maximize your productivity by mastering 
+                        the principles of effective time management discussed in this blog.</p>
+                    <a href="#" class="read-more2">Read More</a>
+                  </div>
+            </div>
+
+
+        </div>
+        
+        <!-- "See More" button -->
+ <button id="see-more-button">See More</button>
+ <button id="see-less-button" style="display: none;">See Less</button>
+  </div>
+
+   
+</div>
+
+
+<!-- Job and carrier  -->
+
+<div class="blog-content">
+  <!-- Blog content goes here -->
+        <h3  style="text-align: center;" class="text-secondary" >Job and career Blog</h3>
+  <div class="blog-container2">
+   
+      <div class="blog-box">
+        <div class="blog-thumbnail2">
+          <img src="blog1.jpg" alt="Blog 1 Thumbnail">
+        </div>
+        <div class="blog-content2">
+          <span class="blog-date2">07/06/2023</span>
+          <h3 class="blog-title2">How to Get a Job: A Comprehensive Guide</h3>
+          <p class="blog-intro2"> The importance of how to  finding the right job  within a  time-frame. <br>
+            what the challenges job seekers face in today's competitive job market.
+              </p>
+          <a href="#" class="read-more2">Read More</a>
+        </div>
+      </div>
+      
+      <div class="blog-box">
+        <div class="blog-thumbnail2">
+          <img src="blog2.jpg" alt="Blog 2 Thumbnail">
+        </div>
+        <div class="blog-content2">
+          <span class="blog-date2">27/06/2023</span>
+          <h3 class="blog-title2">How Your Resume Affects Your Job Search </h3>
+          <p class="blog-intro2">Your resume is your gateway to the job market. In this blog, we'll explore how your
+             resume impacts your job search and the strategies to ensure it leads you to the right job fit.
+             </p>
+          <a href="#" class="read-more2">Read More</a>
+        </div>
+      </div>
+      
+    
+      <div class="blog-box">
+          <div class="blog-thumbnail2">
+            <img src="img/blog-1.jpg" alt="Blog 3 Thumbnail">
+          </div>
+          <div class="blog-content2">
+            <span class="blog-date2">01/06/2023</span>
+            <h3 class="blog-title2"> Networking and Connections</h3>
+            <p class="blog-intro2">Networking and connections can play a crucial role in your career advancement, 
+              so it's important to convey this effectively in your resume or LinkedIn profile.</p>
+            <a href="#" class="read-more2">Read More</a>
+          </div>
+        </div>
+
+        <div class="hidden-blog-boxes-wrapper">
+          <!-- Blog box 4 -->
+          <div class="blog-box">
+              
+                  <div class="blog-thumbnail2">
+                    <img src="blog2.jpg" alt="Blog 4 Thumbnail">
+                  </div>
+                  <div class="blog-content2">
+                    <span class="blog-date2">01/08/2022</span>
+                    <h3 class="blog-title2">Software as a Service (SaaS)</h3>
+                    <p class="blog-intro2"> Revolutionizing Business Software Deployment" - 
+                      Learn how SaaS models are reshaping the way businesses access and utilize software, driving innovation and cost-efficiency.</p>
+                    <a href="#" class="read-more2">Read More</a>
+                  </div>
+                
+          </div>
+  
+          <!-- Blog box 5 -->
+          <div class="blog-box">
+              <!-- ... (Content for Blog 5) -->
+              <div class="blog-thumbnail2">
+                  <img src="blog2.jpg" alt="Blog 5 Thumbnail">
+                </div>
+                <div class="blog-content2">
+                  <span class="blog-date2">11/06/2023</span>
+                  <h3 class="blog-title2">Automation Testing</h3>
+                  <p class="blog-intro2"> Software testing is the systematic process of evaluating a
+                     software application to identify and fix defects, ensuring its quality,
+                     reliability, and functionality meet the intended requirements."</p>
+                  <a href="#" class="read-more2">Read More</a>
+                </div>
+          </div>
+  
+          <!-- Blog box 6 -->
+          <div class="blog-box">
+              <!-- ... (Content for Blog 6) -->
+              <div class="blog-thumbnail2">
+                  <img src="blog2.jpg" alt="Blog 5 Thumbnail">
+                </div>
+                <div class="blog-content2">
+                  <span class="blog-date2">15/04/2023</span>
+                  <h3 class="blog-title2">Manual Testing</h3>
+                  <p class="blog-intro2"> Software testing is the systematic process of evaluating a
+                     software application to identify and fix defects, ensuring its quality,
+                     reliability, and functionality meet the intended requirements."</p>
+                  <a href="#" class="read-more2">Read More</a>
+                </div>
+          </div>
+
+      </div>
+      
+      <!-- "See More" button -->
+<button id="see-more-button">See More</button>
+<button id="see-less-button" style="display: none;">See Less</button>
+</div>
+
+</div>
+
+<!-- keyword -->
+<div class="keywords">
+  <div class="keyword-box">
+     <a href=""> <span class="keyword">Web Development</span></a>
+
+
+  </div>
+
+  <div class="keyword-box">
+     <a href=""><span class="keyword">App Development</span></a> 
+  </div>
+  <div class="keyword-box">
+     <a href=""> <span class="keyword">UI/UX Developer</span></a> 
+  </div>
+  <div class="keyword-box">
+     <a href=""> <span class="keyword">Cloud</span> </a> 
+  </div>
+  <div class="keyword-box">
+  <a href=""> <span class="keyword">Backend</span> </a> 
+  </div>
+  <div class="keyword-box">
+    <a href=""><span class="keyword">artificial </span> </a>
+  </div>
+  <div class="keyword-box">
+    <a href="">   <span class="keyword">Online</span>  </a>
+  </div>
+  <div class="keyword-box">
+      <a href=""> <span class="keyword">computer</span>  </a>
+    </div>
+
+    <div class="keyword-box">
+      <a href="">   <span class="keyword">Online</span>  </a>
+    </div>
+
+    <div class="keyword-box">
+      <a href="">   <span class="keyword">Jobs</span>  </a>
+    </div>
+    <div class="keyword-box">
+      <a href="">   <span class="keyword">business</span>  </a>
+    </div>
+
+     <div class="keyword-box">
+    <a href="">   <span class="keyword">Online</span>  </a>
+  </div>
+ 
+  <!-- Add more keyword boxes if needed -->
+</div>
+
+   <!-- Footer Start -->
+   <div class="container-fluid footer bg-dark wow fadeIn" data-wow-delay=".3s">
+    <div class="container pt-5 pb-4">
+        <div class="row g-5">
+            <div class="col-lg-3 col-md-6">
+                <a href="index.html">
+                    <h1 class="text-white fw-bold d-block">Info<span class="text-secondary">Gex</span> </h1>
+                </a>
+                <p class="mt-4 text-light">InfoGex, a Patna-based company founded in 2021 is a versatile software company offering web and
+                     app development, alongside business strategy services.
+                     
+                    
+                    </p>
+                <div class="d-flex hightech-link">
+                    <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i class="fab fa-facebook-f text-primary"></i></a>
+                    <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i class="fab fa-twitter text-primary"></i></a>
+                    <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i class="fab fa-instagram text-primary"></i></a>
+                    <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-0"><i class="fab fa-linkedin-in text-primary"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+               <a href="#" class="h3 text-secondary">Option</a>
+                <div class="mt-4 d-flex flex-column short-link">
+                    <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>About us</a>
+                    <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Contact us</a>
+                    <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Our Services</a>
+                    <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Our Projects</a>
+                    <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Latest Blog</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <a href="#" class="h3 text-secondary">Help Section</a>
+                <div class="mt-4 d-flex flex-column help-link">
+                    <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Terms Of use</a>
+                    <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Privacy Policy</a>
+                    <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Helps</a>
+                    <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>FQAs</a>
+                    <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Contact</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <a href="#" class="h3 text-secondary">Contact Us</a>
+                <div class="text-white mt-4 d-flex flex-column contact-link">
+                    <a href="#" class="pb-3 text-light border-bottom border-primary"><i class="fas fa-map-marker-alt text-secondary me-2"></i> Aliganj, Gaya , Bihar</a>
+                    <a href="#" class="py-3 text-light border-bottom border-primary"><i class="fas fa-phone-alt text-secondary me-2"></i> +917484081859</a>
+                    <a href="#" class="py-3 text-light border-bottom border-primary"><i class="fas fa-envelope text-secondary me-2"></i> infogexsolutions@gmail.com</a>
+                </div>
+            </div>
+        </div>
+        <hr class="text-light mt-5 mb-4">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-start">
+                <span class="text-light"><a href="#" class="text-white"><i class="fas fa-copyright text-white me-2"></i>Info<span class="text-secondary">Gex</span></a>, All right reserved.</span>
+            </div>
+            <!-- <div class="col-md-6 text-center text-md-end">
+    
+                <span class="text-light"><a href="https://htmlcodex.com" class="text-secondary">HTML Codex</a> Distributed By <a href="https://themewagon.com">ThemeWagon</a></span>
+            </div> -->
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-secondary btn-square rounded-circle back-to-top"><i class="fa fa-arrow-up text-white"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="lib/wow/wow.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="js/main.js"></script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzh0SnFPe0ASJKIPlcpc7yXo_2OZdgPuvQCSlstadjSIdQe3GRhNea3Vu5sOZ5nUXftMg/exec';
+    const form = document.forms['submit-to-google-sheet'];
+    const msg = document.getElementById("msg");
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+          msg.innerHTML = "Message sent successfully";
+          setTimeout(function(){
+            msg.innerHTML = "";
+          }, 2000);
+          form.reset();
+  
+         
+        })
+        .catch(error => console.error('Error!', error.message));
+    });
+  </script>
+   
+
+    <!-- fact -->
+
+  
+  <script>
+    function animateCounter(element, targetValue, duration) {
+      let currentValue = 0;
+      const increment = targetValue / duration;
+      const counterElement = document.getElementById(element);
+      const h5Element = counterElement.querySelector('h5'); // Get the h5 element
+  
+      const interval = setInterval(function () {
+        currentValue += increment;
+        counterElement.querySelector('.counter-value').textContent = Math.floor(currentValue);
+  
+        if (currentValue >= targetValue) {
+          clearInterval(interval);
+          counterElement.querySelector('.counter-value').textContent = targetValue;
+          h5Element.style.visibility = 'visible'; // Show the h5 element
+        }
+      }, 1);
+    }
+  
+    // Trigger the counter animations when the page is loaded
+    window.addEventListener('DOMContentLoaded', function () {
+      animateCounter('fact1', 60, 1000); // Example: 60 is the target value, and 2000 is the duration in milliseconds
+      animateCounter('fact2', 3, 200);  // Example: 3 is the target value, and 2000 is the duration in milliseconds
+      animateCounter('fact3', 30, 1000); // Example: 30 is the target value, and 2000 is the duration in milliseconds
+      animateCounter('fact4', 5, 200);  // Example: 5 is the target value, and 2000 is the duration in milliseconds
+    });
+  </script>
+  
+  
+<!-- blog movement -->
+<script>
+    $(document).ready(function () {
+      $("#blog-carousel").owlCarousel({
+        items: 1, // Display one item at a time (this is needed for the carousel structure)
+        loop: true,
+        margin: 10,
+        autoplay: true,
+        autoplayTimeout: 2000,
+        autoplayHoverPause: true,
+        responsive: {
+          768: {
+            items: 3, // Display three items in a row on screens wider than 768px
+          }
+        }
+      });
+    });
+  </script>
+
+
+
+
+<!-- testimonial -->
+
+<script>
+    $(".testimonial-carousel").owlCarousel({
+        autoplay: true,
+        smartSpeed: 1500,
+        center: true,
+        dots: true,
+        loop: true,
+        margin: 0,
+        nav : true,
+        navText: false,
+        responsiveClass: true,
+        responsive: {
+            0:{
+                items:1
+            },
+            576:{
+                items:1
+            },
+            768:{
+                items:2
+            },
+            992:{
+                items:3
+            }
+        }
+    });
+
+</script>
+
+
+<!-- team carousel -->
+<script>
+    $(".team-carousel").owlCarousel({
+        autoplay: true,
+        smartSpeed: 1000,
+        center: false,
+        dots: false,
+        loop: true,
+        margin: 50,
+        nav : true,
+        navText : [
+            '<i class="bi bi-arrow-left"></i>',
+            '<i class="bi bi-arrow-right"></i>'
+        ],
+        responsiveClass: true,
+        responsive: {
+            0:{
+                items:1
+            },
+            768:{
+                items:2
+            },
+            992:{
+                items:3
+            }
+        }
+    });
+</script>
+
+<!-- back to top -->
+<script>
+ $(window).scroll(function () {
+    if ($(this).scrollTop() > 300) {
+        $('.back-to-top').fadeIn('slow');
+    } else {
+        $('.back-to-top').fadeOut('slow');
+    }
+    });
+    $('.back-to-top').click(function () {
+        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+        return false;
+    });
+</script>
+
+
+
+<!-- spinner -->
+
+<script>
+    (function ($) {
+    "use strict";
+
+    // Spinner
+    var spinner = function () {
+        setTimeout(function () {
+            if ($('#spinner').length > 0) {
+                $('#spinner').removeClass('show');
+            }
+        }, 1000); // Use 1000 milliseconds (1 second) delay instead of 1
+    };
+    spinner();
+})(jQuery); // Ensure to pass jQuery to the function
+
+</script>
+
+
+
+
+  <!-- ff -->
+
+<script>
+    // JavaScript to handle "See More" button
+    document.addEventListener("DOMContentLoaded", function () {
+    const seeMoreButton = document.getElementById("see-more-button");
+    const hiddenBlogBoxesWrapper = document.querySelector(".hidden-blog-boxes-wrapper");
+
+    seeMoreButton.addEventListener("click", function () {
+        hiddenBlogBoxesWrapper.style.display = "flex"; // Show hidden blog boxes
+    });
+});
+  
+</script> 
+
+
+<script>
+    
+document.addEventListener("DOMContentLoaded", function () {
+  const seeMoreButton = document.getElementById("see-more-button");
+  const seeLessButton = document.getElementById("see-less-button");
+  const hiddenBlogBoxesWrapper = document.querySelector(".hidden-blog-boxes-wrapper");
+  const hiddenBlogBoxes = hiddenBlogBoxesWrapper.querySelectorAll(".blog-box");
+  let currentIndex = 0;
+
+  // Function to display the next three hidden blog boxes
+  function showNextThreeBlogBoxes() {
+    for (let i = currentIndex; i < currentIndex + 3 && i < hiddenBlogBoxes.length; i++) {
+      hiddenBlogBoxes[i].style.display = "block";
+    }
+    currentIndex += 3;
+  }
+
+  // Function to hide all hidden blog boxes
+  function hideAllBlogBoxes() {
+    hiddenBlogBoxes.forEach(function (box) {
+      box.style.display = "none";
+    });
+    currentIndex = 0;
+  }
+
+  seeMoreButton.addEventListener("click", function () {
+    showNextThreeBlogBoxes();
+    seeLessButton.style.display = "block"; // Show "See Less" button
+
+    // Check if all hidden blog boxes have been displayed
+    if (currentIndex >= hiddenBlogBoxes.length) {
+      seeMoreButton.style.display = "none"; // Hide "See More" button
+    }
+  });
+
+  seeLessButton.addEventListener("click", function () {
+    hideAllBlogBoxes();
+    seeMoreButton.style.display = "block"; // Show "See More" button
+    seeLessButton.style.display = "none"; // Hide "See Less" button
+  });
+});
+
+    
+</script>
+
+
+
+</body>
+
+</html>
