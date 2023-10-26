@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "InfoGex",
+    "short_name": "InfoGex",
     "icons": [
         {
             "src": "/android-chrome-144x144.png",
@@ -8,7 +8,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
+    "theme_color": "#fcf2f2",
+    "background_color": "#fcf2f2",
     "display": "standalone"
 }
