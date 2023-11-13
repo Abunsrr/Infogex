@@ -929,7 +929,7 @@ body {
 /* back to top  */
 
 @media only screen and (max-width: 600px) {
-    .back-to-top {
+    #back2t {
       display: none; /* Hide the button on smaller screens if necessary */
     }
   }
