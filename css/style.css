@@ -805,18 +805,6 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 /*** Contact End ***/
 
 
@@ -918,12 +906,17 @@ body {
     height: 250px;
 }
 
+#back2t {
+    display: none; /* Hide the button on smaller screens if necessary */
+  }
 
 }
 
 
 @media (min-width: 350px) and (max-width: 480px){
-
+    #back2t {
+        display: none; /* Hide the button on smaller screens if necessary */
+      }
 }
 
 /* back to top  */
