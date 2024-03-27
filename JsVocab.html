@@ -2,20 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>InfoGex - Blog</title>
+    <title>Understanding JavaScript Hoisting</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta name="keywords" content="InfoGex Agency, IT Solutions,  Innovative Technology, Software Development, Business Strategy, Web Development, 
-    App Development, Android Apps, iOS Apps, User Experience, 
-    Patna-based Software Company ,software testing, manual testing, low-cost web , free-templete ,free-templete-code, job, it-job, career ">
+    <meta name="keywords" content="hoisting, JavaScript, variable hoisting, function hoisting, scope, let, const, var">
+    <meta name="description" content="Understand the concept of hoisting in JavaScript how it affects variable and function declarations. Learn the differences between var, let, and const with clear examples.">
 
-    <meta name="description" content= "InfoGex Agency: Your Gateway to Innovative IT Solutions. Launched in 
-    2021, InfoGex is a forward-thinking startup on a mission to transform businesses globally. Our
-     customized IT solutions and cutting-edge technology empower enterprises looking for change and 
-     expansion. We offer expert advice for making informed decisions in the tech landscape. Based in Patna,
-      InfoGex excels in web and app development, creating bespoke mobile apps for both Android and iOS, with
-       a strong focus on elevating user experiences. Beyond development, we partner with clients to devise 
-       strategies aligned with market dynamics. Unlock your potential with InfoGex Agency's revolutionary IT 
-       solutions.">
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
@@ -229,6 +220,7 @@ font-size: .8rem;
     margin-right: 30px; */
   }
 
+ 
   .hidden-blog-boxes-wrapper .blog-box {
     width: 100%;
     
@@ -247,21 +239,55 @@ font-size: .8rem;
     
   
 }
+
+
 }
 
 
-    
+   
+table {
+      border-collapse: collapse; /* Collapse the borders into a single border */
+      width: 100%; /* Set the table width to 100% of its container */
+
+      margin: auto;
+    }
+
+    @media screen and (min-width: 768px) {
+      table {
+        width: 70%; /* Reduce table width for large screens */
+      }
+
+      .hoisting{
+        width: 80%;
+        margin: auto;
+      }
+    }
+
+
+     td {
+      border: 1px solid black; /* Add a solid black border to table cells */
+      padding: 8px; /* Add padding to the cells for better readability */
+      text-align: left; /* Align text to the left within cells */
+    }
+    tr:first-child th,
+    tr:first-child td {
+      font-weight: bold; /* Make the text bold for header cells and cells in the first row */
+    }
+
+    /* Apply bold font to the first column cells */
+    td:first-child {
+      font-weight: bold; /* Make the text bold for cells in the first column */
+    }
+
+    h1{
+      text-align: center;
+    }
+  
 </style>
 
 
     <body>
-        <!-- Spinner Start -->
-        <!-- <div id="spinner" class="show position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-grow text-primary" role="status"></div>
-        </div> -->
-        <!-- Spinner End -->
-
-        <!-- Topbar Start -->
+      
         
         
             <div class="container-fluid bg-dark py-2 d-none d-md-flex">
@@ -408,423 +434,21 @@ font-size: .8rem;
         <!-- Fact End -->
 
 
-       <div class="container-fluid testimonial py-5 mb-5">
-            <div class="container">
-                <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
-                    <h5 style="font-size: 2rem;" class="text-primary">Our Blog</h5>
-                   
-                </div>
-
-                <div  class="owl-carousel testimonial-carousel wow fadeIn  "  data-wow-delay=".0s" id="blog-carousel" >
-                    
-                    <!-- blog 1 -->
-                    <div id="blog-style"  class="testimonial-item  border p-4">
-                        <div class="d-flex align-items-center">
-                            
-                            <div class="ms-4">
-                                <h4 class="text-secondary">web design</h4>
-                                <p class="m-0 pb-3">24/03/2021</p>
-                                <div class="d-flex pe-5">
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                   
-                                </div>
-                            </div>
-                        </div>
-                        <div class="border-top mt-4 pt-3">
-                            <p style="padding-bottom: 100px;" class="mb-0"> <br> Web design is like creating a beautiful and user-friendly online space. It's a mix of art and tech, making websites look great and work well. Let's explore the magic of web design!</p>
-                        </div>
-
-        <!-- share and read more start -->
-                                           
-        <div class=" icon-blog blog-btn d-flex justify-content-between position-relative px-3" style="margin-top: -75px;">
-          <button type="button" class="block">Read More</button>
-          <button type="button" class="block1">share</button>
-        </div>
-        <div style="margin-top: 5px;" class="blog-coment d-flex justify-content-between px-4 py-2 border bg-primary rounded-bottom">
-            <a href="" class="text-white"><small><i class="fas fa-share me-2 text-secondary"></i>532 Share</small></a>
-            <a href="" class="text-white"><small><i class="fa fa-comments me-2 text-secondary"></i>5 Comments</small></a>
-        </div>
-
-        <!-- end of share and read more -->
-                  </div>
-
-                      <!-- blog 2 -->
-                      <div id="blog-style" class="testimonial-item border p-4">
-                        <div class="d-flex align-items-center">
-                            
-                            <div class="ms-4">
-                                <h4 class="text-secondary">The Rising Power of Artificial Intelligence</h4>
-                                <p class="m-0 pb-3">01/08/2022</p>
-                                <div class="d-flex pe-5">
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                   
-                                </div>
-                            </div>
-                        </div>
-                        <div class="border-top mt-4 pt-3">
-                            <p style="padding-bottom: 100px; " class="mb-0">Imagine computers that can think and learn like humans. 
-                                That's what Artificial Intelligence (AI) is all about! In this blog,
-                                 we'll explore how AI is making our lives better and what the future holds</p>
-                        </div>
-
-        <!-- share and read more start -->
-                                           
-        <div class=" icon-blog blog-btn d-flex justify-content-between position-relative px-3" style="margin-top: -75px;">
-          <button type="button" class="block">Read More</button>
-          <button type="button" class="block1">share</button>
-        </div>
-        <div style="margin-top: 5px;" class="blog-coment d-flex justify-content-between px-4 py-2 border bg-primary rounded-bottom">
-            <a href="" class="text-white"><small><i class="fas fa-share me-2 text-secondary"></i>532 Share</small></a>
-            <a href="" class="text-white"><small><i class="fa fa-comments me-2 text-secondary"></i>5 Comments</small></a>
-        </div>
-
-        <!-- end of share and read more -->
-                  </div>
-
-
-                     <!-- blog 3 -->
-                     <div id="blog-style" class="testimonial-item border p-4">
-                        <div class="d-flex align-items-center">
-                            
-                            <div class="ms-4">
-                                <h4 class="text-secondary">Digital Market</h4>
-                                <p class="m-0 pb-3">01/06/2022</p>
-                                <div class="d-flex pe-5">
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                   
-                                </div>
-                            </div>
-                        </div>
-                        <div class="border-top mt-4 pt-3">
-                            <p style="padding-bottom: 100px;" class="mb-0">n today's fast-paced digital landscape, navigating the 
-                                intricacies of digital marketing is crucial for businesses seeking success.
-                                 Join us on a journey through the dynamic world of digital marketing strategies and trends.</p>
-                        </div>
-
-        <!-- share and read more start -->
-                                           
-        <div class=" icon-blog blog-btn d-flex justify-content-between position-relative px-3" style="margin-top: -75px;">
-          <button type="button" class="block">Read More</button>
-          <button type="button" class="block1">share</button>
-        </div>
-        <div style="margin-top: 5px;" class="blog-coment d-flex justify-content-between px-4 py-2 border bg-primary rounded-bottom">
-            <a href="" class="text-white"><small><i class="fas fa-share me-2 text-secondary"></i>532 Share</small></a>
-            <a href="" class="text-white"><small><i class="fa fa-comments me-2 text-secondary"></i>5 Comments</small></a>
-        </div>
-
-        <!-- end of share and read more -->
-                  </div>
-                       <!-- blog 4 -->
-                     
-                       <div id="blog-style" class="testimonial-item border p-4">
-                        <div class="d-flex align-items-center">
-                            
-                            <div class="ms-4">
-                                <h4 class="text-secondary">The Impact of Technology on Society</h4>
-                                <p class="m-0 pb-3">2/03/2023</p>
-                                <div class="d-flex pe-5">
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                   
-                                </div>
-                            </div>
-                        </div>
-                        <div class="border-top mt-4 pt-3">
-                            <p style="padding-bottom: 100px;" class="mb-0">
-                            <br>
-                                Delve into the effects of technology on our lives, from enhanced
-                                 convenience to potential drawbacks, in this thought-provoking analysis.</p>
-                        </div>
-
-        <!-- share and read more start -->
-                                           
-        <div class=" icon-blog blog-btn d-flex justify-content-between position-relative px-3" style="margin-top: -75px;">
-          <button type="button" class="block">Read More</button>
-          <button type="button" class="block1">share</button>
-        </div>
-        <div style="margin-top: 5px;" class="blog-coment d-flex justify-content-between px-4 py-2 border bg-primary rounded-bottom">
-            <a href="" class="text-white"><small><i class="fas fa-share me-2 text-secondary"></i>532 Share</small></a>
-            <a href="" class="text-white"><small><i class="fa fa-comments me-2 text-secondary"></i>5 Comments</small></a>
-        </div>
-                      
-
-
-                     <!-- blog 5..... -->
-                </div>
-            </div>
-        </div>
-
-    <!-- Technical blog post -->
-<div id="tech" class="blog-content">
-    <!-- Blog content goes here -->
-          <h3  style="text-align: center;" class="text-secondary" >Technical Blog</h3>
-    <div class="blog-container2">
-     
-        <div class="blog-box">
-          <div class="blog-thumbnail2">
-            <img src="blog1.jpg" alt="Blog 1 Thumbnail">
-          </div>
-          <div class="blog-content2">
-            <span class="blog-date2">09/03/2023</span>
-            <h3 class="blog-title2">Hoisting in Js</h3>
-            <p class="blog-intro2">Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their containing scope during the <span>compilation phase</span>, before the code is executed. This means that regardless of where variables and functions are declared within a scope,
-                </p>
-            <a href="hoisting.html" class="read-more2">Read More</a>
-          </div>
-        </div>
-        
-        <div class="blog-box">
-          <div class="blog-thumbnail2">
-            <img src="blog2.jpg" alt="Blog 2 Thumbnail">
-          </div>
-          <div class="blog-content2">
-            <span class="blog-date2">27/06/2023</span>
-            <h3 class="blog-title2">Open Source Software</h3>
-            <p class="blog-intro2">Advantages, Challenges, and Impact on Tech Communities" - Delve into the world of open-source software, examining its benefits,
-                 challenges, and influence on collaborative tech communities.
-               </p>
-            <a href="#" class="read-more2">Read More</a>
-          </div>
-        </div>
-        
-      
-        <div class="blog-box">
-            <div class="blog-thumbnail2">
-              <img src="img/blog-1.jpg" alt="Blog 3 Thumbnail">
-            </div>
-            <div class="blog-content2">
-              <span class="blog-date2">01/06/2023</span>
-              <h3 class="blog-title2">User Interface (UI) and User Experience (UX) Design</h3>
-              <p class="blog-intro2">Crafting Intuitive Software" - Explore the significance of UI/UX design in 
-                creating user-friendly software and driving customer satisfaction.</p>
-              <a href="#" class="read-more2">Read More</a>
-            </div>
-          </div>
-
-          <div class="hidden-blog-boxes-wrapper">
-            <!-- Blog box 4 -->
-            <div class="blog-box">
-                
-                    <div class="blog-thumbnail2">
-                      <img src="blog2.jpg" alt="Blog 4 Thumbnail">
-                    </div>
-                    <div class="blog-content2">
-                      <span class="blog-date2">01/08/2022</span>
-                      <h3 class="blog-title2">Software as a Service (SaaS)</h3>
-                      <p class="blog-intro2"> Revolutionizing Business Software Deployment" - 
-                        Learn how SaaS models are reshaping the way businesses access and utilize software, driving innovation and cost-efficiency.</p>
-                      <a href="#" class="read-more2">Read More</a>
-                    </div>
-                  
-            </div>
-    
-            <!-- Blog box 5 -->
-            <div class="blog-box">
-                <!-- ... (Content for Blog 5) -->
-                <div class="blog-thumbnail2">
-                    <img src="blog2.jpg" alt="Blog 5 Thumbnail">
-                  </div>
-                  <div class="blog-content2">
-                    <span class="blog-date2">11/06/2023</span>
-                    <h3 class="blog-title2">Automation Testing</h3>
-                    <p class="blog-intro2"> Software testing is the systematic process of evaluating a
-                       software application to identify and fix defects, ensuring its quality,
-                       reliability, and functionality meet the intended requirements."</p>
-                    <a href="#" class="read-more2">Read More</a>
-                  </div>
-            </div>
-    
-            <!-- Blog box 6 -->
-            <div class="blog-box">
-                <!-- ... (Content for Blog 6) -->
-                <div class="blog-thumbnail2">
-                    <img src="blog2.jpg" alt="Blog 5 Thumbnail">
-                  </div>
-                  <div class="blog-content2">
-                    <span class="blog-date2">15/04/2023</span>
-                    <h3 class="blog-title2">Manual Testing</h3>
-                    <p class="blog-intro2"> Software testing is the systematic process of evaluating a
-                       software application to identify and fix defects, ensuring its quality,
-                       reliability, and functionality meet the intended requirements."</p>
-                    <a href="#" class="read-more2">Read More</a>
-                  </div>
-            </div>
-
-
-             <!-- Blog box 7-->
-             <div class="blog-box">
-                <!-- ... (Content for Blog 7) -->
-                <div class="blog-thumbnail2">
-                    <img src="blog2.jpg" alt="Blog 5 Thumbnail">
-                  </div>
-                  <div class="blog-content2">
-                    <span class="blog-date2">16/03/2023</span>
-                    <h3 class="blog-title2">Blockchain Technology</h3>
-                    <p class="blog-intro2"> Beyond Cryptocurrency - Applications in Software" - Go beyond cryptocurrencies and explore the diverse applications
-                         of blockchain technology in software development and beyond.</p>
-                    <a href="#" class="read-more2">Read More</a>
-                  </div>
-            </div>
-
-
-             <!-- Blog box 8 -->
-             <div class="blog-box">
-                <!-- ... (Content for Blog 8) -->
-                <div class="blog-thumbnail2">
-                    <img src="blog2.jpg" alt="Blog 5 Thumbnail">
-                  </div>
-                  <div class="blog-content2">
-                    <span class="blog-date2">17/04/2023</span>
-                    <h3 class="blog-title2">The Psychology of Happiness</h3>
-                    <p class="blog-intro2">  Unlocking the Secrets to a Fulfilling Life" - Explore the science of happiness and 
-                        discover actionable strategies for leading a more joyful and contented life.</p>
-                    <a href="#" class="read-more2">Read More</a>
-                  </div>
-            </div>
-
-
-
-             <!-- Blog box 9 -->
-             <div class="blog-box">
-                <!-- ... (Content for Blog 9) -->
-                <div class="blog-thumbnail2">
-                    <img src="blog2.jpg" alt="Blog 5 Thumbnail">
-                  </div>
-                  <div class="blog-content2">
-                    <span class="blog-date2">18/09/2023</span>
-                    <h3 class="blog-title2">Art of Time Management</h3>
-                    <p class="blog-intro2">Take control of your schedule and maximize your productivity by mastering 
-                        the principles of effective time management discussed in this blog.</p>
-                    <a href="#" class="read-more2">Read More</a>
-                  </div>
-            </div>
-
-
-        </div>
-        
-        <!-- "See More" button -->
- <button id="see-more-button">See More</button>
- <button id="see-less-button" style="display: none;">See Less</button>
-  </div>
-
-   
-</div>
-
-
-<!-- Job and carrier  -->
-
-<div id="job" class="blog-content">
-  <!-- Blog content goes here -->
-        <h3  style="text-align: center;" class="text-secondary" >Job and career Blog</h3>
-  <div class="blog-container2">
-   
-      <div class="blog-box">
-        <div class="blog-thumbnail2">
-          <img src="blog1.jpg" alt="Blog 1 Thumbnail">
-        </div>
-        <div class="blog-content2">
-          <span class="blog-date2">07/06/2023</span>
-          <h3 class="blog-title2">How to Get a Job: A Comprehensive Guide</h3>
-          <p class="blog-intro2"> The importance of how to  finding the right job  within a  time-frame. <br>
-            what the challenges job seekers face in today's competitive job market.
-              </p>
-          <a href="#" class="read-more2">Read More</a>
-        </div>
-      </div>
-      
-      <div class="blog-box">
-        <div class="blog-thumbnail2">
-          <img src="blog2.jpg" alt="Blog 2 Thumbnail">
-        </div>
-        <div class="blog-content2">
-          <span class="blog-date2">27/06/2023</span>
-          <h3 class="blog-title2">How Your Resume Affects Your Job Search </h3>
-          <p class="blog-intro2">Your resume is your gateway to the job market. In this blog, we'll explore how your
-             resume impacts your job search and the strategies to ensure it leads you to the right job fit.
-             </p>
-          <a href="#" class="read-more2">Read More</a>
-        </div>
-      </div>
-      
-    
-      <div class="blog-box">
-          <div class="blog-thumbnail2">
-            <img src="img/blog-1.jpg" alt="Blog 3 Thumbnail">
-          </div>
-          <div class="blog-content2">
-            <span class="blog-date2">01/06/2023</span>
-            <h3 class="blog-title2"> Networking and Connections</h3>
-            <p class="blog-intro2">Networking and connections can play a crucial role in your career advancement, 
-              so it's important to convey this effectively in your resume or LinkedIn profile.</p>
-            <a href="#" class="read-more2">Read More</a>
-          </div>
-        </div>
-
-        <div class="hidden-blog-boxes-wrapper">
-          <!-- Blog box 4 -->
-          <div class="blog-box">
-              
-                  <div class="blog-thumbnail2">
-                    <img src="blog2.jpg" alt="Blog 4 Thumbnail">
-                  </div>
-                  <div class="blog-content2">
-                    <span class="blog-date2">01/08/2022</span>
-                    <h3 class="blog-title2">Software as a Service (SaaS)</h3>
-                    <p class="blog-intro2"> Revolutionizing Business Software Deployment" - 
-                      Learn how SaaS models are reshaping the way businesses access and utilize software, driving innovation and cost-efficiency.</p>
-                    <a href="#" class="read-more2">Read More</a>
-                  </div>
-                
-          </div>
-  
-          <!-- Blog box 5 -->
-          <div class="blog-box">
-              <!-- ... (Content for Blog 5) -->
-              <div class="blog-thumbnail2">
-                  <img src="blog2.jpg" alt="Blog 5 Thumbnail">
-                </div>
-                <div class="blog-content2">
-                  <span class="blog-date2">11/06/2023</span>
-                  <h3 class="blog-title2">Automation Testing</h3>
-                  <p class="blog-intro2"> Software testing is the systematic process of evaluating a
-                     software application to identify and fix defects, ensuring its quality,
-                     reliability, and functionality meet the intended requirements."</p>
-                  <a href="#" class="read-more2">Read More</a>
-                </div>
-          </div>
-  
-          <!-- Blog box 6 -->
-          <div class="blog-box">
-              <!-- ... (Content for Blog 6) -->
-              <div class="blog-thumbnail2">
-                  <img src="blog2.jpg" alt="Blog 5 Thumbnail">
-                </div>
-                <div class="blog-content2">
-                  <span class="blog-date2">15/04/2023</span>
-                  <h3 class="blog-title2">Manual Testing</h3>
-                  <p class="blog-intro2"> Software testing is the systematic process of evaluating a
-                     software application to identify and fix defects, ensuring its quality,
-                     reliability, and functionality meet the intended requirements."</p>
-                  <a href="#" class="read-more2">Read More</a>
-                </div>
-          </div>
-
-      </div>
-      
-      <!-- "See More" button -->
-<button id="see-more-button">See More</button>
-<button id="see-less-button" style="display: none;">See Less</button>
-</div>
-
-</div>
-
+        <!-- vocab -->
+        <ul>
+            <li>
+                <h1> compilation phase</h1>
+                <p>In JavaScript, before the code is executed, it goes through a process called compilation. During this phase, the JavaScript engine does several things, including:</p>
+                 <ol>
+                    <li>Tokenizing/Lexing: The code is broken down into tokens, which are the smallest units of the language, like keywords, operators, and identifiers.</li>
+                    <li>Parsing: The tokens are organized into a syntax tree, also known as an Abstract Syntax Tree (AST), which represents the grammatical structure of the code.</li>
+                    <li>Code Generation: The AST is used to generate executable code, which is then executed by the JavaScript engine.</li>
+                 </ol>
+                 <li>
+                    <p>"during the compilation phase," we are referring to the phase in which hoisting occurs. During this phase, variable declarations are recognized and reserved in memory, and function declarations are fully hoisted along with their bodies.</p>
+                 </li>
+            </li>
+        </ul>
 <!-- keyword -->
 <div class="keywords">
   <div class="keyword-box">
