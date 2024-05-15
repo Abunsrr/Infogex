@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>JavaScript Execution context</title>
+    <title>Understanding JavaScript Hoisting</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta name="keywords" content="JavaScript, Execution Context, Global Execution Context, Function Execution Context, Scope, Scope Chain, Call Stack, this">
-    <meta name="description" content="Discover the fundamentals of JavaScript Execution Contexts. Understand the phases involved, the role of the Scope Chain, and how the Call Stack manages function execution."> 
-    
+    <meta name="keywords" content="hoisting, JavaScript, variable hoisting, function hoisting, scope, let, const, var">
+    <meta name="description" content="Understand the concept of hoisting in JavaScript how it affects variable and function declarations. Learn the differences between var, let, and const with clear examples.">
 
 
 
@@ -30,11 +29,11 @@
 
     
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/services.css">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/services.css">
    
     <!-- script -->
     <!-- <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script> -->
@@ -246,23 +245,43 @@ font-size: .8rem;
 
 
    
+table {
+      border-collapse: collapse; /* Collapse the borders into a single border */
+      width: 100%; /* Set the table width to 100% of its container */
+
+      margin: auto;
+    }
+
+    @media screen and (min-width: 768px) {
+      table {
+        width: 70%; /* Reduce table width for large screens */
+      }
+
+      .hoisting{
+        width: 80%;
+        margin: auto;
+      }
+    }
 
 
+     td {
+      border: 1px solid black; /* Add a solid black border to table cells */
+      padding: 8px; /* Add padding to the cells for better readability */
+      text-align: left; /* Align text to the left within cells */
+    }
+    tr:first-child th,
+    tr:first-child td {
+      font-weight: bold; /* Make the text bold for header cells and cells in the first row */
+    }
 
-
-    
+    /* Apply bold font to the first column cells */
+    td:first-child {
+      font-weight: bold; /* Make the text bold for cells in the first column */
+    }
 
     h1{
       text-align: center;
     }
-
-    
-pre {
-            background-color: #f0f0f0;
-            padding: 15px;
-            border-radius: 5px;
-            overflow-x: auto; /* Add horizontal scroll for long code lines */
-        }
   
 </style>
 
@@ -353,7 +372,7 @@ pre {
        
         <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
-                <img src="../img/project-3.jpg" class="img-fluid " 
+                <img src="img/project-3.jpg" class="img-fluid " 
         
                 alt="First slide">
                 <div class="carousel-caption">
@@ -415,275 +434,213 @@ pre {
         <!-- Fact End -->
 
 
-        <!-- execution context -->
-        <div>
-            <h1> JavaScript execution context </h1>
-    <ul>
-             <li> execution context is a fundamental concept that helps understand how JavaScript code is executed. An execution context is an environment in which JavaScript code is evaluated and executed. Whenever JavaScript code is run, it is executed within a specific execution context </li>
     
-             <li>At its core, a JavaScript Execution Context (EC) is an abstract environment created by the JavaScript engine when your code runs. Think of it as a container or workspace where code executes.</li>
-            </ul>
-      
-    
-             <ol>
-                <li> <h3>Global Execution Context:</h3>
-                
-                    <ul>
-                        <li><strong>Default:</strong> The initial, base execution context. There is only one GEC per JavaScript program. <br>
-                            The global execution context is the outermost context in which JavaScript code is executed.</li>
-                        <li><strong>Global Scope:</strong> Code not inside any function resides in the global context, and thus has access to global variables and functions.
-                        <br> <span>In Other Word </span><br>
-                        Any code written outside of functions in a JavaScript program operates within the global scope, allowing it to interact with and utilize global variables and functions.</li>
-                        <li><strong>Creation:</strong> The GEC is created before your code starts executing. </li>
-                      </ul>
-    
-                </li>
-    
-    
-     <p> This is the window object in web browsers, or its equivalent in other JS environments. It acts as a container for all global variables and functions. <br>
-        <strong> this Keyword:</strong>In the global context, this also references the global object.</p>
-    
-                <li>
-                    <h3>Function Execution Context (FEC):</h3>
-                      <ul>
-                        <li><strong>For Each Function Call:</strong> A new FEC is created every time a function is called.</li>
-                        <li><strong>Local Scope:</strong> Variables and functions declared inside a function have limited visibility (scope) within the FEC and cannot be accessed from outside it.</li>
-                        <li><strong>Multiple FECs:</strong> There can be many FECs running at the same time (e.g., nested function calls).</li>
-    
-    
-                        <li>Each function call creates its own execution context, which includes the function's local variables, parameters, and any nested function declarations.
-                            </li>
-                            <li>
-                                The function's execution context is pushed onto the call stack, and when the function completes execution, its execution context is removed from the stack.
-                            </li>
-                      </ul>
-                </li>
-             </ol>
-    
-      <div>
-    
-     <h3>Two main phases in an Execution Context (EC) for JavaScript</h3>
-    
-     <ol>
-        <li>
-           <h3>Creation Phase</h3> 
-           <ul>
-            <li> <strong>Variable Object (VO) </strong>Creation: A special object is created to store all variables and function declarations defined within the current context (global or function).</li>
-    
-            
-            <li>
-                <h2>Memory Creation Phase in JavaScript</h2>
-    
-    <p>During the memory creation phase, the JavaScript engine performs the following steps:</p>
-    
-    <ol>
-      <li>Set up memory space for variables and functions before executing the code.</li>
-      <li>Hoist variable declarations (var, let, and const) and function declarations to the top of their respective scopes.</li>
-      <li>For variables declared with var, allocate memory space and initialize it with the value undefined. However, the assignment of the value to the variable is not performed until the execution phase.</li>
-      <li>For function declarations, hoist the entire function body, allowing functions to be called before they are defined in the code.</li>
-      <li>Allocate memory space for function parameters.</li>
-      <li>Set up the environment for the execution phase by creating the Variable Environment and Lexical Environment for each execution context.</li>
-    </ol>
-            </li>
-           </ul>
-        </li>
-    
-        <p style="color: rgb(151, 42, 42);"> this Value Determination: The value of the this keyword is determined based on the context. In the global context, this typically refers to the global object (like window in browsers).</p>
-        <li>
-            <h3>Execution Phase</h3> 
-    
-            <h4> Code Execution in JavaScript</h4>
-    
-    <ul>
-      <li><strong>Variable Assignment:</strong> Variables declared with var, let, or const are assigned their defined values (or undefined if no value is assigned).</li>
-      <li><strong>Function Calls:</strong> When a function is called, a new Execution Context is created specifically for that function call. This process repeats for nested function calls, following the Creation and Execution phases again.</li>
-      <li><strong>Expression Evaluation:</strong> Expressions (calculations, comparisons, etc.) are evaluated to produce results.</li>
-      <li><strong>Statement Execution:</strong> Statements like if/else, for, and while control the flow of execution.</li>
-    </ul>
-    
-         </li>
-     </ol>
-     <h3>Key Points of Execution Contexts in JavaScript</h3>
-    
-    <ul>
-      <li><strong>There's only one Global Execution Context per program.</strong></li>
-      <li><strong>Each function call creates a new Function Execution Context.</strong></li>
-      <li><strong>The Creation Phase prepares the environment, while the Execution Phase carries out the actual code execution.</strong></li>
-      <li><strong>The conceptual "hoisting" of variable and function declarations happens during the Creation Phase of the Global Execution Context.</strong></li>
-    </ul>
-    </div> 
-         </div>
-        <div>
-            <h3> code Example</h3>
+            <h1>Callback Functions:</h1>
+            <p>A callback function is a function that is passed as an argument to another function and is invoked inside the outer function.</p>
+        
+            <p>a callback function is a function that is passed as an argument to another function and is executed after some operation has been completed.</p>
+        
             <pre><code>
-                function nameOne() {
-                    console.log("one")
-                   
-                   }
-                   
-                   function nameTwo() {
-                    console.log("two")
-                   
-                   }
-                   function nameThree() {
-                    console.log("three")  
-                   }
-                   
-                   nameOne()
-                   nameTwo()
-                   nameThree() 
-    
-    
-                   
+                function calculate(num1, num2, operation) {
+                    return operation(num1, num2);
+                  }
+                  
+                  function add(a, b) {
+                    return a + b;
+                  }
+                  
+                  const result = calculate(5, 3, add); // 'add' is the callback function
+                  console.log(result); // Output: 8
+                  
+        
+                  
             </code></pre>
-    
-            <code>
-                <h2>Overall Execution Flow in JavaScript</h2>
-    
-    <h3>Global Execution Context (GEC) Creation</h3>
-    <ul>
-      <li><strong>Variable Object:</strong> nameOne, nameTwo, and nameThree are hoisted and placed into memory.</li>
-      <li><strong>Scope Chain:</strong> The GEC forms the base of the scope chain.</li>
-      <li><strong>this:</strong> Set to the global object (e.g., window in browsers).</li>
-    </ul>
-    
-    <h3>Global Execution Context (GEC) Execution</h3>
-    
-    <ol>
-      <li><strong>nameOne() Called:</strong>
-        <ul>
-          <li>FEC for nameOne Created:
+        
+            <p>When calculate is called, it invokes the operation function (in this case, add) with num1 and num2 as its arguments. This is why add(5, 3) effectively calls the add function with 5 and 3 as arguments, resulting in the addition of 5 and 3, which equals 8. This value is then returned and assigned to result.
+        
+                So, result ultimately contains the result of invoking the add function with the provided arguments. This is how result knows the values of num1 and num2.</p>
+        
+        
+                <h2>how 5 , 3 become a and b for  add function</h2>
+        
+        
+                <h3>Explanation</h3>
+        
+        <ol>
+        <li><strong>The Initial Call:</strong> When you execute calculate(5, 3, add), you provide:
             <ul>
-              <li><strong>Creation Phase:</strong> Variable Object (VO) for nameOne is created (no internal variables), scope chain is established, this likely points to the global object.</li>
-              <li><strong>Execution Phase:</strong> "one" is logged to the console.</li>
-            </ul>
-          </li>
-          <li>FEC for nameOne Destroyed: Control returns to the GEC.</li>
+         <li>num1: Assigned the value 5</li>
+         <li>num2: Assigned the value 3</li>
+        <li>operation: Assigned the add function itself</li>
         </ul>
-      </li>
-      
-      <li><strong>nameTwo() Called:</strong>
-        <ul>
-          <li>FEC for nameTwo Created: (similar process to nameOne)</li>
-          <li>FEC for nameTwo Destroyed</li>
+        </li>
+        <li><strong>Inside the 'calculate' Function:</strong>
+        <ul> <li>The line return operation(num1, num2); is effectively like calling add(num1, num2). </li>
+        <li>The values of num1 (5) and num2 (3) are passed into the add function.</li>
         </ul>
-      </li>
-      
-      <li><strong>nameThree() Called:</strong>
-        <ul>
-          <li>FEC for nameThree Created: (similar process to nameOne)</li>
-          <li>FEC for nameThree Destroyed</li>
-        </ul>
-      </li>
-      
-      <li><strong>GEC Destroyed:</strong> The program finishes.</li>
-    </ol>
-    
-    <h2>Key Points</h2>
-    
-    <ul>
-      <li><strong>Call Stack:</strong> The JavaScript engine uses the call stack to keep track of which function is currently executing and to manage the creation and destruction of function execution contexts.</li>
-      <li><strong>One at a Time:</strong> Functions are executed one after the other with each function getting its own temporary execution context.</li>
-      <li><strong>Hierarchy:</strong> The GEC is the base, and each function call temporarily creates a new execution context on top of it.</li>
-    </ul>
-    
-            </code>
-    
-    
-    
+        </li>
+        <li><strong>Inside the 'add' Function:</strong>
+         The parameter a receives the value of num1 (5).
+        <br> The parameter b receives the value of num2 (3).
+        </li>
+        </ol>
+        
+        <h3>Key Takeaway</h3>
+        
+        Parameters allow us to pass values between functions, creating flexible and reusable code.
+        
+        <h3>Let's visualize the journey of the values:</h3>
+        
+        They begin as 5 and 3 in calculate(5, 3, add).
+        They transform into num1 and num2 in the calculate function.
+        They're passed on to the add function.
+        Finally, they become a and b within add.
+        
+        
+        
+        <h1> ForEach() Function</h1>
+        <h3>My own For Loop</h3>
+        <pre><code>
+            function myForEach(array , callback) {
+                for (let i = 0; i < array.length; i++) {
+                    callback(array[i],i,array)
+                    
+                }
+            }
+            
+            
+            // useses of call back
+            const number=[1,2,3,4,5,6]
+            let square=[]
+            myForEach(number,(num)=> {
+                return  square.push(num*2 ) 
+              })
+            
+              console.log(square)
+            
+        <div>
             <code>
-    
-                <h2>Understanding Execution Contexts in JavaScript: Handling User Authentication Example</h2>
-    
-    <p>Let's delve into execution contexts with a detailed example comparing global and function execution contexts in a real development scenario.</p>
-    
-    <h3>Example: Handling User Authentication</h3>
-    
-    <p>Suppose you're building a web application that requires user authentication. You have a function to check if a user is logged in and another function to display the user's profile. Let's explore how execution contexts work in this scenario.</p>
-    
-    <pre><code class="language-javascript">// Global variables
-    var isLoggedIn = false;
-    var username = "guest";
-    
-    // Function to check if user is logged in
-    function checkLogin() {
-        if (isLoggedIn) {
-            console.log("User is logged in as " + username);
-        } else {
-            console.log("User is not logged in");
-        }
-    }
-    
-    // Function to display user profile
-    function displayProfile() {
-        checkLogin(); // Calling checkLogin function from displayProfile function
-        console.log("Displaying user profile for " + username);
-    }
-    
-    // Simulating user login
-    function login(user) {
-        isLoggedIn = true;
-        username = user;
-        console.log("User " + username + " logged in successfully");
-    }</code></pre>
-    
-    <h3>Now, let's examine how execution contexts work:</h3>
-    
-    <h4>Global Execution Context:</h4>
-    
-    <ul>
-      <li>When the JavaScript file is loaded, the global execution context is created.</li>
-      <li>The global variables <code>isLoggedIn</code> and <code>username</code> are created in the global execution context.</li>
-      <li>The functions <code>checkLogin()</code>, <code>displayProfile()</code>, and <code>login(user)</code> are also defined in the global execution context.</li>
-      <li>These functions are available globally and can be called from anywhere in the script.</li>
-    </ul>
-    
-    <h4>Function Execution Context:</h4>
-    
-    <ul>
-      <li>When a function is called, a new function execution context is created for that function.</li>
-      <li>For example, when <code>displayProfile()</code> is called, a new function execution context is created for it.</li>
-      <li>Within the <code>displayProfile()</code> function execution context, variables like <code>isLoggedIn</code> and <code>username</code> are resolved first in the function's local variable environment. If not found, JavaScript looks up the scope chain to the outer variable environment (the global execution context) to resolve them.</li>
-      <li>Similarly, when <code>checkLogin()</code> is called from within <code>displayProfile()</code>, a new function execution context is created for <code>checkLogin()</code>.</li>
-    </ul>
-    
-    <h3>Real Development Scenario:</h3>
-    
-    <p>In a real development scenario, you might use this setup to handle user authentication on a website.</p>
-    
-    <ul>
-      <li>The <code>checkLogin()</code> function could be called whenever you need to verify if the user is logged in before displaying certain content or accessing protected resources.</li>
-      <li>The <code>displayProfile()</code> function could be used to display the user's profile information after they log in.</li>
-      <li>The <code>login(user)</code> function could be called when the user successfully logs in, updating the global variables <code>isLoggedIn</code> and <code>username</code>.</li>
-    </ul>
-            </code>
+          <p>  Function Declaration:
+        
+        function myForEach(arr, callback) {
+        You've created a function and named it myForEach.
+        It expects two things when you use it:
+        arr: This will be the array you want the function to work on.
+        callback: This is another function that will define what to do with each item in the array.
+        The Loop:</p> 
+        
+        for (let i = 0; i < arr.length; i++) {
+        This is a loop that will go through each item in your array. Here's how it works:
+        let i = 0; You start a counter named i at zero, which represents the starting index of the array.
+        i < arr.length; The loop will keep running as long as the counter i is less than the total number of items in the array.
+        i++ After each pass through the loop, the counter i is increased by one to move on to the next item.
+        
+        
+        The Heart of the Action
+        
+       <p> callback(arr[i], i, arr);
+        This is the most important line! Here's what happens:
+        arr[i]: Gets the current item from the array based on the counter i.
+        i: Gives the index of the current item in the array.
+        arr: Provides the entire array itself.
+        callback(...): This calls the callback function you provided when you used myForEach. It sends the current item, its index, and the array to this callback function, allowing it to do something with that data.
+        Key Point: The real magic of your myForEach function is that it doesn't know in advance what you want to do with each item – that's entirely up to the callback function you provide separately!</p>
         </div>
-    
-         <summary>
-    
-            <h2>Summary</h2>
-            <h4>Memory Creation Phase</h4>
-    
-    <ul>
-      <li><strong>During the memory creation phase, the JavaScript engine sets up memory space for variables and functions before executing the code.</strong></li>
-      <li><strong>Variable declarations (var, let, and const) and function declarations are hoisted to the top of their respective scopes.</strong></li>
-      <li><strong>For variables declared with var, memory space is allocated and initialized with the value undefined. However, the assignment of the value to the variable is not performed until the execution phase.</strong></li>
-      <li><strong>For function declarations, the entire function body is hoisted, allowing functions to be called before they are defined in the code.</strong></li>
-      <li><strong>Memory space is also allocated for the function parameters.</strong></li>
-      <li><strong>The memory creation phase sets up the environment for the execution phase by creating the Variable Environment and Lexical Environment for each execution context.</strong></li>
-    </ul>
-    
-    <h4>Execution Phase</h4>
-    
-    <ul>
-      <li><strong>During the execution phase, the JavaScript engine executes the code line by line.</strong></li>
-      <li><strong>Assignments, function calls, and other executable statements are processed in the order they appear in the code.</strong></li>
-      <li><strong>Variables assigned with values are updated in memory, and function invocations execute the function code.</strong></li>
-      <li><strong>Scopes are established, and variable and function references are resolved based on the scope chain.</strong></li>
-      <li><strong>Code inside functions is executed when the function is called, and any nested function declarations or variable assignments are processed.</strong></li>
-      <li><strong>The execution phase continues until all statements in the code have been executed, or until an error occurs.</strong></li>
-    </ul>
-         </summary>
+
+    </code>
+        
+        <span style="color: rgb(23, 23, 72); font-size: x-large;"> Another Eaxample</span>
+        
+        
+        const names = ["Alice", "Bob", "Charlie"];
+        
+        myForEach(names, (name, index) => {
+          console.log(`Hello there, ${name}!`);
+        });
+        
+        
+        o/p 
+        
+        Hello there, Alice!
+        Hello there, Bob!
+        Hello there, Charlie!
+        
+            <span style="color: rgb(23, 23, 72); font-size: x-large;"> Another Eaxample</span>
+        
+            const fruits = ["apple", "banana", "orange", "apple", "grape"];
+        
+        function myForEach(arr, callback) { 
+          // ... (Your existing myForEach function code)
+        }
+        
+        // Callback Function: The Filter (Revised)
+        const isApple = (currentFruit) => {
+          return currentFruit === "apple";
+        };
+        
+        // Using myForEach for Filtering
+        const applesOnly = [];
+        myForEach(fruits, (currentFruit) => { // Updated here as well
+          if (isApple(currentFruit)) {
+            applesOnly.push(currentFruit);
+          }
+        });
+        
+        console.log(applesOnly); // Output: ["apple", "apple"]
+        
+        </code></pre>
+        
+        
+        
+        
+          <h1>Understanding forEach in JavaScript</h1>
+          
+          <p>
+            In programming, the <strong>forEach</strong> method in JavaScript is primarily used for its side effects, such as logging or modifying elements. It's not typically used for creating a new array based on transformations of the original array. That's where <strong>map</strong> comes in handy.
+          </p>
+        
+          <p>
+            A "side effect" refers to any observable change that occurs outside of the primary scope or purpose of a function or operation. In the context of array iteration methods like forEach, "side effects" typically refer to actions that directly modify external state, such as:
+          </p>
+        
+          <ul>
+            <li>Modifying External Variables or Objects</li>
+            <li>Mutating Data Structures</li>
+            <li>Performing I/O Operations</li>
+          </ul>
+        
+          <p>
+            Here's an example illustrating side effects with forEach:
+          </p>
+        
+         <pre><code>
+          const numbers = [1, 2, 3, 4, 5];
+        
+        // Side effect: Logging each element to the console
+        numbers.forEach(num => {
+          console.log(num);
+        });
+        
+        // Side effect: Modifying an external variable
+        let sum = 0;
+        numbers.forEach(num => {
+          sum += num;
+        });
+        console.log(sum); // Output: 15
+        
+         </code></pre>
+            <p>the side effects include logging each element to the console and calculating the sum of all elements. The primary purpose of the forEach method here is to perform these actions, rather than to generate a new array or transform the existing one.
+        
+        
+        
+        
+        
+            </p>
+        
+        
+        
+        
+
 
 <!-- keyword -->
 <div class="keywords">
