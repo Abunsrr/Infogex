@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en"> 
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript Execution context</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="keywords" content="JavaScript, Execution Context, Global Execution Context, Function Execution Context, Scope, Scope Chain, Call Stack, this">
+    <meta name="description" content="Discover the fundamentals of JavaScript Execution Contexts. Understand the phases involved, the role of the Scope Chain, and how the Call Stack manages function execution."> 
+    
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Saira:wght@500;600;700&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <!-- <link href="lib/animate/animate.min.css" rel="stylesheet"> -->
+    <!-- <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet"> -->
+    
+
+
+
+    
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/services.css">
+   
+    <!-- script -->
+    <!-- <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script> -->
+
+    <!-- favicon -->
+
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon_package_v0.16/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png">
+    <link rel="manifest" href="favicon_package_v0.16/site.webmanifest">
+    <link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#fcf2f2">
+
+</head>
+    
+
+
+<style>
+    
+    .keywords {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-top: 20px;
+    }
+
+    .keyword-box {
+        background-color: #f0f0f0;
+        padding: 5px 10px;
+        margin: 0 10px 10px 0;
+        border-radius: 5px;
+    }
+
+    .keyword {
+        font-weight: bold;
+    }
+
+
+    /* blog box */
+   
+    .blog-container2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 50px 10px 50px;
+  
+}
+
+.blog-box {
+  width: calc(33.33% - 20px);
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-left: 3px;
+}
+
+.blog-thumbnail2 img {
+  max-width: 100%;
+  height: auto;
+}
+
+.blog-content2 {
+  margin-top: 10px;
+}
+
+.blog-date2 {
+  font-size: 14px;
+  color: #999;
+}
+
+.blog-title2 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.blog-intro2 {
+  font-size: 14px;
+}
+
+.read-more2 {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.read-more2:hover {
+  background-color: #0056b3;
+}
+
+
+.block {
+  display: block;
+  width: 50%;
+  border: none;
+  background-color: #04AA6D;
+  padding: 14px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  margin-right: 10px;
+  border-radius: .5rem;
+}
+.block1 {
+  display: block;
+  width: 50%;
+  border: none;
+  background-color: #a7ddc9;
+  padding: 14px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: .5rem;
+}
+
+/* Style for hidden blog boxes */
+.hidden-blog-boxes-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: space-between;
+    margin-top: 20px;
+    display: none; /* Initially hidden */
+}
+
+/* Additional styling for hidden blog boxes, adjust as needed */
+.hidden-blog-boxes-wrapper .blog-box {
+    width: calc(33.33% - 10px);
+}
+
+
+#see-more-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+}
+
+#see-more-button:hover {
+    background-color: #556c84;
+    
+}
+
+.blog-thumbnail2 img{
+    width: 70%;
+    height: 50%;
+    display: none;
+}
+
+.keyword-box a{
+color: rgb(8, 76, 76);
+font-size: .8rem;
+}
+
+
+#blog-style div h4{
+font-size: 1rem;
+}
+
+#blog-style div p{
+font-size: .8rem;
+}
+
+
+/* Media Queries for Responsive Design */
+
+@media screen and (max-width: 768px) {
+  .blog-box {
+     width: calc(80% - 20px); 
+    /* width: 100%;
+    margin-left: 30px;
+    margin-right: 30px; */
+  }
+
+ 
+  .hidden-blog-boxes-wrapper .blog-box {
+    width: 100%;
+    
+  
+}
+  
+}
+
+@media screen and (max-width: 576px) {
+  .blog-box {
+    width: 100%;
+  }
+
+  .hidden-blog-boxes-wrapper .blog-box {
+    width: 100%;
+    
+  
+}
+
+
+}
+
+
+   
+
+
+
+
+    
+
+    h1{
+      text-align: center;
+    }
+
+    
+pre {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto; /* Add horizontal scroll for long code lines */
+        }
+  
+</style>
+
+
+    <body>
+      
+        
+        
+            <div class="container-fluid bg-dark py-2 d-none d-md-flex">
+            <div class="container">
+                <div class="d-flex justify-content-between topbar">
+                    <div class="top-info">
+                        <!-- <small class="me-3 text-white-50"><a href="#"><i class="fas fa-map-marker-alt me-2 text-secondary"></i></a>Street 13, Aliganj Gaya, Bihar</small>
+                        <br> -->
+                        <small class="me-3 text-white-50"><a href="mailto:infogexsolutions@gmail.com"><i class="fas fa-envelope me-2 text-secondary"></i></a>infogexsolutions@gmail.com</small>
+                    </div>
+                    <div id="note" class="text-secondary d-none d-xl-flex"><small>Note : We help you to Grow your Business</small></div>
+                    <div class="top-link">
+                        <a href="" class="bg-light nav-fill btn btn-sm-square rounded-circle"><i class="fab fa-facebook-f text-primary"></i></a>
+                        <a href="" class="bg-light nav-fill btn btn-sm-square rounded-circle"><i class="fab fa-twitter text-primary"></i></a>
+                        <a href="" class="bg-light nav-fill btn btn-sm-square rounded-circle"><i class="fab fa-instagram text-primary"></i></a>
+                        <a href="" class="bg-light nav-fill btn btn-sm-square rounded-circle me-0"><i class="fab fa-linkedin-in text-primary"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Topbar End -->
+
+        <!-- Navbar Start -->
+        <div  style="background-color: rgb(27, 74, 103);" class=" container-fluid">
+          <div class="container">
+              <nav class="navbar navbar-dark navbar-expand-lg py-0">
+                  <a href="index.html" class="navbar-brand">
+                      <h1 class="text-white fw-bold d-block">Info<span class="text-secondary">Gex</span> </h1>
+                  </a>
+                  <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse bg-transparent" id="navbarCollapse">
+                      <div class="navbar-nav ms-auto mx-xl-auto p-0">
+                          <a href="index.html" class="nav-item nav-link">Home</a>
+                          <a href="about.html" class="nav-item nav-link">About</a>
+                          <a href="service.html" class="nav-item nav-link">Services</a>
+                          <a href="blog.html" class="nav-item nav-link active text-secondary">Blogs</a>
+                          <div class="nav-item dropdown">
+                              <a href="project.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Project</a>
+                              <div class="dropdown-menu rounded">
+                                  <a href="webproject.html" class="dropdown-item">Web Application</a>
+                                  <a href="appproject.html" class="dropdown-item">App Applications</a>
+                                  <a href="digiproject.html" class="dropdown-item">Digital Market</a>
+                                  <a href="otherproject.html" class="dropdown-item">Other</a>
+                              </div>
+                          </div>
+                          <a href="contact.html" class="nav-item nav-link">Contact</a>
+                      </div>
+                  </div>
+
+                  <div class="d-none d-xl-flex flex-shirink-0">
+                      <div id="phone-tada" class="d-flex align-items-center justify-content-center me-4">
+                          <a href="" class="position-relative animated tada infinite">
+                              <i class="fa fa-phone-alt text-white fa-2x"></i>
+                              <div class="position-absolute" style="top: -7px; left: 20px;">
+                                  <span><i class="fa fa-comment-dots text-secondary"></i></span>
+                              </div>
+                          </a>
+                      </div>
+
+                      <div class="d-flex flex-column pe-4 border-end">
+                          <span class="text-white-50">Have any questions?</span>
+                          <span ><a class="text-secondary" href="tel:+916201134359"><span 
+                            class="text-white">Call :</span> +916201134359 </a></span>
+                      </div>
+                      
+                      <div class="d-flex align-items-center justify-content-center ms-4 ">
+                          <a href="#"><i class="bi bi-search text-white fa-2x"></i> </a>
+                      </div>
+                  </div>
+              </nav>
+          </div>
+      </div>
+
+        <!-- nav end -->
+        
+<!-- coursol -->
+
+<div class="container-fluid px-0">
+    <div id="carouselId" class="carousel slide" data-bs-ride="carousel"  data-bs-interval="3000" >
+       
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+                <img src="../img/project-3.jpg" class="img-fluid " 
+        
+                alt="First slide">
+                <div class="carousel-caption">
+                    <div class="container carousel-content">
+                        <!-- <h6 class="text-secondary h4 animated fadeInUp">Best IT Solutions</h6> -->
+                        <h1  style="color: rgb(117, 230, 230); font-size: 3rem;" class="mb-4 animated fadeInRight">Blogs</h1>
+                        <p class="mb-4 text-white fs-5 animated fadeInDown">Expand your knowledge by exploring our Blog.  
+                        </p>
+
+                        <a href="#tech" class="me-2"><button  type="button" class="px-4 py-sm-3
+                             px-sm-5 btn btn-primary rounded-pill carousel-content-btn1 animated 
+                             fadeInLeft">Technical blogs</button></a>
+
+                        <a href="#job" class="ms-2"><button type="button" class="px-4 
+                            py-sm-3 px-sm-5 btn btn-primary rounded-pill carousel-content-btn2
+                             animated fadeInRight">Jobs and Career</button></a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+        <!-- Page Header End -->
+        
+<!-- fact start -->
+
+         <div id="fact" style="background-color: rgb(45, 65, 65);" class="container-fluid py-3">
+            <div id="fact-cont" class="container">
+              <div class="row">
+                <div class="col-lg-3 wow fadeIn" data-wow-delay=".1s">
+                  <div id="fact1" class="d-flex counter">
+                    <h1 class="me-3 text-primary counter-value">0</h1>
+                    <h5 class="text-white mt-1">Success in getting happy customer</h5>
+                  </div>
+                </div>
+                <div class="col-lg-3 wow fadeIn" data-wow-delay=".1s">
+                  <div id="fact2" class="d-flex counter">
+                    <h1 class="me-3 text-primary counter-value">0</h1>
+                    <h5 class="text-white mt-1">Hundred of successful business</h5>
+                  </div>
+                </div>
+                <div class="col-lg-3 wow fadeIn" data-wow-delay=".1s">
+                  <div id="fact3" class="d-flex counter">
+                    <h1 class="me-3 text-primary counter-value">0</h1>
+                    <h5 class="text-white mt-1">Total clients who love HighTech</h5>
+                  </div>
+                </div>
+                <div class="col-lg-3 wow fadeIn" data-wow-delay=".1s">
+                  <div id="fact4" class="d-flex counter">
+                    <h1 class="me-3 text-primary counter-value">0</h1>
+                    <h5 class="text-white mt-1">Stars reviews given by satisfied clients</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <!-- Fact End -->
+
+
+        <div>
+          <div dir="auto">
+              <div>
+                  <div>
+                      <div>
+                          <div dir="auto">
+                              <div>
+                                  <div>
+                                      <p><strong>JavaScript Definitio:</strong></p>
+                                      <p><strong>JavaScript is a high-level, dynamic, and interpreted programming language that is widely used for web development. It allows developers to create interactive and dynamic content on web pages. JavaScript is an essential technology of the World Wide Web, alongside HTML and CSS, and it enables client-side script to interact with the user and make the web pages dynamic. It can also be used on the server-side with environments like Node.js.<br></strong><strong><br></strong></p>
+                                      <ol>
+                                          <li><strong>High-level language</strong>: JavaScript abstracts away much of the complex details of the computer, making it easier to write and understand.</li>
+                                          <li><strong>Interpreted</strong>: JavaScript code is executed line-by-line by the browser or a JavaScript engine without needing prior compilation.</li>
+                                          <li><strong>Dynamic typing</strong>: Variable types are not explicitly declared, and types are determined at runtime.</li>
+                                          <li><strong>Prototypal inheritance</strong>: Unlike classical inheritance in languages like Java or C++, JavaScript uses prototypes for inheritance.</li>
+                                          <li><strong>Event-driven</strong>: JavaScript is often used to handle events such as user inputs, mouse clicks, and other actions.</li>
+                                          <li><strong>Single-threaded with asynchronous capabilities</strong>: JavaScript operates on a single thread but can handle asynchronous operations using callbacks, promises, and async/await.</li>
+                                          <li><strong>Widely used for web development</strong>: JavaScript runs in the browser, enabling interactive web pages and applications. It&rsquo;s also used server-side with Node.js to build scalable network applications.</li>
+                                      </ol>
+                                      <p>In an interview, you might also highlight JavaScript&apos;s versatility, its ecosystem of frameworks and libraries (such as React, Angular, and Vue.js for front-end, and Node.js for back-end), and its role in modern web development practices like AJAX, JSON, and RESTful APIs&nbsp;</p>
+                                      <p><span style="text-align: inherit;">then why javascript is also called scripting languag</span></p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div><span style="text-align: inherit;">JavaScript is called a scripting language because of the following reasons:<br></span>
+          </div>
+          <div dir="auto">
+              <div>
+                  <div>
+                      <div>
+                          <div>
+                              <div>
+                                  <div dir="auto">
+                                      <div><br></div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div dir="auto">
+              <div>
+                  <div>
+                      <div>
+                          <div dir="auto">
+                              <div>
+                                  <div>
+                                      <ol>
+                                          <li>
+                                              <p><strong>Interpreted at Runtime</strong>: Scripting languages are typically interpreted at runtime rather than compiled beforehand. JavaScript code is executed directly by the browser or a JavaScript engine (like V8 in Chrome) as it runs, without the need for a prior compilation step.</p>
+                                          </li>
+                                          <li>
+                                              <p><strong>Automates Tasks</strong>: Scripting languages are often used to automate repetitive tasks or enhance the functionality of an application without modifying its underlying code. JavaScript is used to automate tasks within web pages, such as form validation, animations, and handling user events.</p>
+                                          </li>
+                                          <li>
+                                              <p><strong>Embedded in HTML</strong>: JavaScript is usually embedded directly within HTML documents. This is characteristic of scripting languages, which are often embedded within other languages to extend their functionality.</p>
+                                          </li>
+                                          <li>
+                                              <p><strong>Lightweight and High-Level</strong>: Scripting languages are generally lightweight and high-level, making them easier to write and understand. JavaScript abstracts many of the complexities involved in programming, allowing developers to write concise and efficient code.</p>
+                                          </li>
+                                          <li>
+                                              <p><strong>Designed for Specific Environments</strong>: Scripting languages are often designed for specific environments. JavaScript was originally created to run in web browsers, providing interactivity and dynamic behavior to web pages. Although it has since expanded to server-side environments (like Node.js), its roots are in scripting for web pages.</p>
+                                          </li>
+                                          <li>
+                                              <p><strong>Rapid Development and Execution</strong>: Scripting languages like JavaScript enable rapid development and execution of code. They allow for quick changes and updates to be made directly in the browser, facilitating an iterative development process.</p>
+                                          </li>
+                                      </ol>
+                                      <p>In summary, JavaScript is called a scripting language because it is interpreted at runtime, automates tasks within web pages, is embedded in HTML, and provides a lightweight and high-level approach to programming specifically designed for enhancing web functionality.</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div dir="auto">
+              <div>
+                  <div>
+                      <div>
+                          <div>
+                              <div>
+                                  <div dir="auto">
+                                      <div>
+                                          <div>then how machine understand js code if it not complie <span style="text-align: inherit;">Even though JavaScript is not compiled in the traditional sense, it is still executed by a JavaScript engine that interprets the code. Modern JavaScript engines, like Google&apos;s V8 (used in Chrome and Node.js), perform a Just-In-Time (JIT) compilation to improve performance. Here&rsquo;s a breakdown of how this works:</span></div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div dir="auto">
+              <div>
+                  <div>
+                      <div>
+                          <div dir="auto">
+                              <div>
+                                  <div>
+                                      <ol>
+                                          <li>
+                                              <p><strong>Parsing</strong>: When JavaScript code is loaded, the JavaScript engine first parses the code. This involves reading the code and converting it into an Abstract Syntax Tree (AST), which is a hierarchical representation of the code structure.</p>
+                                          </li>
+                                          <li>
+                                              <p><strong>Interpretation and Execution</strong>: The JavaScript engine interprets the AST. Initially, it may interpret the code line-by-line, converting it into bytecode, which is a lower-level representation of the code that the engine can execute directly.</p>
+                                          </li>
+                                          <li>
+                                              <p><strong>Just-In-Time (JIT) Compilation</strong>: To optimize performance, modern JavaScript engines use JIT compilation. The engine monitors the code as it runs, identifying frequently executed parts (hot code). These parts are then compiled into machine code on the fly, allowing the code to run much faster.</p>
+                                          </li>
+                                          <li>
+                                              <p><strong>Optimization</strong>: The JIT compiler continuously optimizes the code based on runtime feedback. It can perform various optimizations like inlining functions, eliminating unnecessary calculations, and optimizing loops.</p>
+                                          </li>
+                                          <li>
+                                              <p><strong>Execution of Machine Code</strong>: The optimized machine code is then executed directly by the CPU, providing performance close to that of traditionally compiled languages.</p>
+                                          </li>
+                                      </ol>
+                                      <h3>Key Components of JavaScript Engines</h3>
+                                      <ul>
+                                          <li><strong>Parser</strong>: Converts JavaScript code into an AST.</li>
+                                          <li><strong>Interpreter</strong>: Executes the AST or converts it to bytecode.</li>
+                                          <li><strong>JIT Compiler</strong>: Compiles frequently used code into optimized machine code.</li>
+                                          <li><strong>Garbage Collector</strong>: Manages memory by reclaiming memory occupied by objects that are no longer in use.</li>
+                                      </ul>
+                                      <h3>Example Engines</h3>
+                                      <ul>
+                                          <li><strong>V8</strong>: Used in Google Chrome and Node.js.</li>
+                                          <li><strong>SpiderMonkey</strong>: Used in Mozilla Firefox.</li>
+                                          <li><strong>JavaScriptCore</strong>: Used in Safari.</li>
+                                          <li><strong>Chakra</strong>: Used in Microsoft Edge (Legacy).</li>
+                                      </ul>
+                                      <p>By using these techniques, JavaScript engines ensure that even though JavaScript is an interpreted language, it can achieve high performance by dynamically compiling and optimizing code at runtime</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div dir="auto">
+              <div>
+                  <div>
+                      <div>
+                          <div>
+                              <div>
+                                  <div dir="auto">
+                                      <div>
+                                          <div><strong>compilation and interpreator</strong><br><span style="text-align: inherit;">In the context of programming languages,&nbsp;</span><strong style="text-align: inherit;">compilation</strong><span style="text-align: inherit;">&nbsp;and&nbsp;</span><strong style="text-align: inherit;">interpretation</strong><span style="text-align: inherit;">&nbsp;are two different methods of executing code. Here&rsquo;s a detailed comparison to clarify how each works, particularly in the context of JavaScript.</span></div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div dir="auto">
+              <div>
+                  <div>
+                      <div>
+                          <div dir="auto">
+                              <div>
+                                  <div>
+                                      <h3>Compilation</h3>
+                                      <ul>
+                                          <li><strong>Definition</strong>: Compilation is the process of translating high-level source code into machine code or bytecode before execution. The resulting machine code can be directly executed by the CPU.</li>
+                                          <li><strong>Process</strong>:<ol>
+                                                  <li><strong>Source Code</strong>: The original high-level code written by the programmer.</li>
+                                                  <li><strong>Compiler</strong>: A special program that translates the source code into machine code.</li>
+                                                  <li><strong>Machine Code</strong>: The low-level code that the CPU can execute directly.</li>
+                                              </ol>
+                                          </li>
+                                          <li><strong>Execution</strong>: Once compiled, the machine code can be executed multiple times without needing to be recompiled.</li>
+                                          <li><strong>Examples</strong>: C, C++, and Rust are typically compiled languages.</li>
+                                          <li><strong>Advantages</strong>:<ul>
+                                                  <li>Faster execution after compilation since the machine code is directly executed by the CPU.</li>
+                                                  <li>Errors can be caught during the compilation phase.</li>
+                                              </ul>
+                                          </li>
+                                          <li><strong>Disadvantages</strong>:<ul>
+                                                  <li>Compilation can be time-consuming.</li>
+                                                  <li>Less flexibility for dynamic changes or on-the-fly code execution.</li>
+                                              </ul>
+                                          </li>
+                                      </ul>
+                                      <h3>Interpretation</h3>
+                                      <ul>
+                                          <li><strong>Definition</strong>: Interpretation involves executing code line-by-line directly from the source code without prior compilation into machine code. The interpreter reads and executes the source code at runtime.</li>
+                                          <li><strong>Process</strong>:<ol>
+                                                  <li><strong>Source Code</strong>: The original high-level code written by the programmer.</li>
+                                                  <li><strong>Interpreter</strong>: A special program that reads and executes the source code line-by-line.</li>
+                                              </ol>
+                                          </li>
+                                          <li><strong>Execution</strong>: The interpreter processes and executes the code on the fly, without producing a separate machine code file.</li>
+                                          <li><strong>Examples</strong>: Python, Ruby, and traditional JavaScript engines.</li>
+                                          <li><strong>Advantages</strong>:<ul>
+                                                  <li>Easier to debug and test, as the code is executed line-by-line.</li>
+                                                  <li>More flexibility for dynamic execution and on-the-fly changes.</li>
+                                              </ul>
+                                          </li>
+                                          <li><strong>Disadvantages</strong>:<ul>
+                                                  <li>Slower execution since code is interpreted on the fly.</li>
+                                                  <li>Errors are found at runtime, which might be less efficient for large programs.</li>
+                                              </ul>
+                                          </li>
+                                      </ul>
+                                      <h3>JavaScript: Combining Both Approaches</h3>
+                                      <p>JavaScript engines use a hybrid approach that incorporates both interpretation and Just-In-Time (JIT) compilation to balance flexibility and performance. Here&rsquo;s how it works:</p>
+                                      <ol>
+                                          <li><strong>Parsing</strong>: The JavaScript engine parses the source code and converts it into an Abstract Syntax Tree (AST).</li>
+                                          <li><strong>Initial Interpretation</strong>: The engine starts by interpreting the AST or converting it into bytecode, which is executed by an interpreter.</li>
+                                          <li><strong>Just-In-Time (JIT) Compilation</strong>:<ul>
+                                                  <li><strong>Hot Code Identification</strong>: The engine identifies frequently executed code paths (hot code).</li>
+                                                  <li><strong>On-the-Fly Compilation</strong>: The JIT compiler compiles these hot code paths into optimized machine code while the program is running.</li>
+                                                  <li><strong>Execution</strong>: The machine code is executed directly, providing significant performance improvements.</li>
+                                              </ul>
+                                          </li>
+                                          <li><strong>Optimization</strong>: The JIT compiler continuously optimizes the code based on runtime feedback.</li>
+                                      </ol>
+                                      <h3>Key Points in JavaScript Engines</h3>
+                                      <ul>
+                                          <li><strong>V8 Engine (Chrome, Node.js)</strong>: Uses JIT compilation to optimize frequently executed code.</li>
+                                          <li><strong>SpiderMonkey (Firefox)</strong>: Also employs JIT compilation for performance.</li>
+                                          <li><strong>JavaScriptCore (Safari)</strong>: Uses a similar JIT compilation approach.</li>
+                                      </ul>
+                                      <p>By combining interpretation with JIT compilation, modern JavaScript engines achieve a balance of quick startup times and high runtime performance, allowing for efficient execution of JavaScript code both in the browser and on the server-side.</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div>
+                        
+                      </div>
+                      <div><br></div>
+                  </div>
+              </div>
+          </div>
+          <div dir="auto">
+              <div>
+                  <div>
+                      <div>
+                          <div>
+                              <div>
+                                  <div dir="auto">
+                                      <div>
+                                          <div><strong>on fly mean</strong><br><span style="text-align: inherit;">&quot;On the fly&quot; refers to performing a task or operation dynamically and immediately during runtime, rather than pre-processing it beforehand. In the context of computing and programming, this means making decisions, optimizations, or changes while the program is executing, rather than compiling everything in advance.</span></div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div dir="auto">
+              <div>
+                  <div>
+                      <div>
+                          <div dir="auto">
+                              <div>
+                                  <div>
+                                      <h3>In Detail:</h3>
+                                      <ul>
+                                          <li><strong>Dynamic Execution</strong>: Operations are carried out as needed, without prior preparation. For example, interpreting code line-by-line as it is encountered.</li>
+                                          <li><strong>Immediate Response</strong>: Adjustments or actions are taken instantly in response to the current state or input, such as compiling a frequently executed piece of code while the program is running (Just-In-Time compilation).</li>
+                                          <li><strong>Flexibility</strong>: Allows for more adaptive and responsive behavior, as the program can change its behavior based on runtime conditions.</li>
+                                      </ul>
+                                      <h3>Examples in Programming:</h3>
+                                      <ol>
+                                          <li>
+                                              <p><strong>Just-In-Time (JIT) Compilation</strong>:</p>
+                                              <ul>
+                                                  <li>JIT compilation in JavaScript engines like V8 compiles portions of the code into machine code on the fly, i.e., while the program is running, rather than before execution starts. This allows the engine to optimize frequently executed paths dynamically for better performance.</li>
+                                              </ul>
+                                          </li>
+                                          <li>
+                                              <p><strong>Dynamic Typing in JavaScript</strong>:</p>
+                                              <ul>
+                                                  <li>JavaScript determines variable types on the fly during runtime. This means you can assign different types of values to the same variable without declaring its type explicitly beforehand.</li>
+                                              </ul>
+                                          </li>
+                                          <li>
+                                              <p><strong>Dynamic Loading of Libraries</strong>:</p>
+                                              <ul>
+                                                  <li>Some languages allow you to load libraries or modules on the fly, i.e., as needed during the execution of the program, rather than loading all possible dependencies at the start.</li>
+                                              </ul>
+                                          </li>
+                                          <li>
+                                              <p><strong>Responsive User Interfaces</strong>:</p>
+                                              <ul>
+                                                  <li>Web applications often update the user interface on the fly based on user interactions or other events, providing a dynamic and interactive experience.</li>
+                                              </ul>
+                                          </li>
+                                      </ol>
+                                      <h3>Advantages:</h3>
+                                      <ul>
+                                          <li><strong>Flexibility and Adaptability</strong>: Allows programs to adapt to changing conditions and inputs during execution.</li>
+                                          <li><strong>Efficiency</strong>: Can optimize performance by focusing resources on frequently executed code paths or operations that need immediate attention.</li>
+                                          <li><strong>Rapid Development</strong>: Easier to make changes and see results immediately, which is useful for debugging and iterative development.</li>
+                                      </ul>
+                                      <h3>Disadvantages:</h3>
+                                      <ul>
+                                          <li><strong>Overhead</strong>: Can introduce additional overhead due to the need for real-time interpretation or compilation.</li>
+                                          <li><strong>Complexity</strong>: Adds complexity to the execution model, as the system needs to handle dynamic changes and optimizations.</li>
+                                      </ul>
+                                      <p>In summary, &quot;on the fly&quot; refers to the capability of a system to perform tasks, make decisions, or adapt to conditions dynamically during its execution, enhancing flexibility and responsivenes</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div dir="auto">
+              <div>
+                  <div>
+                      <div>
+                          <div>
+                              <div>
+                                  <div dir="auto">
+                                      <div>
+                                          <div><strong><u>Step wise definition</u></strong><br><br><span style="text-align: inherit;">Sure, here&rsquo;s a step-by-step breakdown of how JavaScript is executed, incorporating the concepts of interpretation, Just-In-Time (JIT) compilation, and the meaning of &quot;on the fly&quot;:</span></div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div dir="auto">
+              <div>
+                  <div>
+                      <div>
+                          <div dir="auto">
+                              <div>
+                                  <div>
+                                      <h3>Step-by-Step Execution of JavaScript</h3>
+                                      <ol>
+                                          <li>
+                                              <p><strong>Loading the JavaScript Code</strong>:</p>
+                                              <ul>
+                                                  <li>The JavaScript code is loaded into the JavaScript engine, which is embedded in the web browser (e.g., V8 in Chrome, SpiderMonkey in Firefox) or server-side environment (e.g., Node.js).</li>
+                                              </ul>
+                                          </li>
+                                          <li>
+                                              <p><strong>Parsing</strong>:</p>
+                                              <ul>
+                                                  <li>The JavaScript engine reads the raw JavaScript code.</li>
+                                                  <li>It parses the code to convert it into an Abstract Syntax Tree (AST), a tree representation of the structure of the code.</li>
+                                              </ul>
+                                          </li>
+                                          <li>
+                                              <p><strong>Initial Interpretation</strong>:</p>
+                                              <ul>
+                                                  <li>The engine starts executing the JavaScript code by interpreting the AST or converting it into intermediate bytecode.</li>
+                                                  <li>This step allows for immediate execution without waiting for a full compilation process.</li>
+                                              </ul>
+                                          </li>
+                                          <li>
+                                              <p><strong>Execution of Bytecode</strong>:</p>
+                                              <ul>
+                                                  <li>The bytecode is executed by the engine&apos;s interpreter. This involves reading each bytecode instruction and performing the corresponding operation.</li>
+                                              </ul>
+                                          </li>
+                                          <li>
+                                              <p><strong>Just-In-Time (JIT) Compilation</strong>:</p>
+                                              <ul>
+                                                  <li><strong>Hot Code Identification</strong>: The engine monitors the code execution to identify frequently executed parts (hot code). These are typically loops, functions, or frequently called sections of the code.</li>
+                                                  <li><strong>On-the-Fly Compilation</strong>: When hot code is identified, the JIT compiler kicks in. It compiles these hot code paths into optimized machine code on the fly, i.e., during the execution of the program.</li>
+                                                  <li><strong>Optimization</strong>: The JIT compiler applies various optimizations to the machine code based on runtime information, such as inlining functions, eliminating redundant calculations, and optimizing loops.</li>
+                                              </ul>
+                                          </li>
+                                          <li>
+                                              <p><strong>Execution of Machine Code</strong>:</p>
+                                              <ul>
+                                                  <li>The optimized machine code is executed directly by the CPU. This significantly improves performance for frequently executed code paths.</li>
+                                              </ul>
+                                          </li>
+                                          <li>
+                                              <p><strong>Garbage Collection</strong>:</p>
+                                              <ul>
+                                                  <li>The JavaScript engine also manages memory automatically through garbage collection. It reclaims memory occupied by objects that are no longer in use, ensuring efficient memory usage.</li>
+                                              </ul>
+                                          </li>
+                                          <li>
+                                              <p><strong>Dynamic Adjustments</strong>:</p>
+                                              <ul>
+                                                  <li>Throughout the execution, the engine continues to monitor and make adjustments on the fly. It can recompile code sections if they become hot or if new optimizations are identified.</li>
+                                                  <li>The engine handles dynamic typing, variable changes, and other runtime adjustments immediately as they occur.</li>
+                                              </ul>
+                                          </li>
+                                      </ol>
+                                      <h3>Key Components and Concepts</h3>
+                                      <ul>
+                                          <li><strong>Parser</strong>: Converts JavaScript code into an Abstract Syntax Tree (AST).</li>
+                                          <li><strong>Interpreter</strong>: Initially executes the AST or bytecode.</li>
+                                          <li><strong>JIT Compiler</strong>: Compiles hot code into machine code during execution.</li>
+                                          <li><strong>Garbage Collector</strong>: Manages memory by reclaiming unused objects.</li>
+                                          <li><strong>On-the-Fly</strong>: Refers to performing tasks or making adjustments dynamically during runtime, enhancing flexibility and responsiveness.</li>
+                                      </ul>
+                                      <h3>Advantages</h3>
+                                      <ul>
+                                          <li><strong>Flexibility and Adaptability</strong>: Can adapt to changing conditions and inputs during execution.</li>
+                                          <li><strong>Efficiency</strong>: Optimizes performance by focusing resources on frequently executed code paths.</li>
+                                          <li><strong>Rapid Development</strong>: Easier to debug and iterate, as changes can be tested immediately.</li>
+                                      </ul>
+                                      <h3>Disadvantages</h3>
+                                      <ul>
+                                          <li><strong>Overhead</strong>: Introduces additional overhead due to real-time interpretation or compilation.</li>
+                                          <li><strong>Complexity</strong>: Adds complexity to the execution model, requiring the system to handle dynamic changes and optimizations.</li>
+                                      </ul>
+                                      <p>By following these steps, the JavaScript engine ensures that the code is executed efficiently and responsively, balancing the need for immediate execution with the benefits of optimized performance.</p>
+                                      <p><br></p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div dir="auto">
+              <div>
+                  <div>
+                      <div>
+                          <div>
+                              <div>
+                                  <div dir="auto">
+                                      <div>
+                                          <div><strong>what is AST?</strong></div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div dir="auto">
+              <div>
+                  <div dir="auto">
+                      <div>
+                          <div>
+                              <h3>Abstract Syntax Tree (AST)</h3>
+                              <p>An Abstract Syntax Tree (AST) is a crucial data structure used in compilers and interpreters to represent the structure of source code. It breaks down the code into its syntactic components and organizes them in a hierarchical tree structure. Here&apos;s a detailed look at what an AST is and its role in the execution of JavaScript:</p>
+                              <h3>What is an AST?</h3>
+                              <ol>
+                                  <li><strong>Definition</strong>:<ul>
+                                          <li>An AST is a tree representation of the abstract syntactic structure of the source code.</li>
+                                          <li>Each node in the tree denotes a construct occurring in the source code. The syntax is abstract because it omits some syntactic details that are irrelevant to the understanding of the code structure, focusing instead on the hierarchical relationships between the constructs.</li>
+                                      </ul>
+                                  </li>
+                              </ol>
+                              <h3>How AST Works:</h3>
+                              <ol>
+                                  <li>
+                                      <p><strong>Parsing</strong>:</p>
+                                      <ul>
+                                          <li>The JavaScript engine reads the source code and parses it to create the AST. This is the first step after the code is loaded.</li>
+                                          <li>During parsing, the code is tokenized (split into meaningful symbols or tokens), and these tokens are analyzed to form the tree structure.</li>
+                                      </ul>
+                                  </li>
+                                  <li>
+                                      <p><strong>Tree Structure</strong>:</p>
+                                      <ul>
+                                          <li>The AST represents different elements of the code (such as variables, functions, operators, control structures) as nodes in the tree.</li>
+                                          <li>Each node has children nodes that represent its subcomponents or expressions. For example, an <code>if</code> statement node will have children nodes for the condition, the block of code to execute if the condition is true, and possibly the block to execute if the condition is false.</li>
+                                      </ul>
+                                  </li>
+                                  <li>
+                                      <p><strong>Syntax Simplification</strong>:</p>
+                                      <ul>
+                                          <li>The AST simplifies the code structure by focusing on the logical structure rather than the exact syntax. It abstracts away elements like parentheses in expressions or semicolons at the end of statements.</li>
+                                      </ul>
+                                  </li>
+                              </ol>
+                              <h3>Role of AST in JavaScript Execution:</h3>
+                              <ol>
+                                  <li>
+                                      <p><strong>Code Analysis</strong>:</p>
+                                      <ul>
+                                          <li>The AST is used by the interpreter or compiler to analyze the code structure. It helps in understanding the flow and dependencies within the code.</li>
+                                      </ul>
+                                  </li>
+                                  <li>
+                                      <p><strong>Optimization</strong>:</p>
+                                      <ul>
+                                          <li>The AST allows the JavaScript engine to perform various optimizations. For example, it can identify constant expressions that can be precomputed, or it can inline functions for performance improvement.</li>
+                                      </ul>
+                                  </li>
+                                  <li>
+                                      <p><strong>Transformation</strong>:</p>
+                                      <ul>
+                                          <li>Tools and frameworks can manipulate the AST to transform the code. This is commonly used in minification (reducing code size) and transpilation (converting code from one version of JavaScript to another or from another language to JavaScript).</li>
+                                      </ul>
+                                  </li>
+                                  <li>
+                                      <p><strong>Code Generation</strong>:</p>
+                                      <ul>
+                                          <li>After optimization and transformation, the AST can be used to generate bytecode or machine code that the engine executes.</li>
+                                      </ul>
+                                  </li>
+                              </ol>
+                              <h3>Example of AST:</h3>
+                              <p>Consider the JavaScript code:</p>
+                              <pre><div><div>javascript</div><div><code>var x = 5 + 3;
+      </code></div></div></pre>
+                              <p>The corresponding AST might look like this:</p>
+                              <pre><div><div>less</div><div><code>VariableDeclaration
+       └── VariableDeclarator
+            ├── Identifier (name: &quot;x&quot;)
+            └── BinaryExpression (operator: &quot;+&quot;)
+                 ├── Literal (value: 5)
+                 └── Literal (value: 3)
+      </code></div></div></pre>
+                              <h3>In Summary:</h3>
+                              <ul>
+                                  <li><strong>AST (Abstract Syntax Tree)</strong> is a hierarchical tree structure that represents the abstract syntactic structure of source code.</li>
+                                  <li><strong>Parsing</strong> converts source code into an AST.</li>
+                                  <li><strong>Tree Nodes</strong> represent different code constructs, organized to show their hierarchical relationships.</li>
+                                  <li><strong>Roles</strong> include code analysis, optimization, transformation, and code generation.</li>
+                                  <li><strong>Advantages</strong>: Simplifies the understanding and manipulation of code structure, enabling efficient interpretation, compilation, and optimization.</li>
+                              </ul>
+                              <p>By leveraging the AST, JavaScript engines can efficiently interpret, compile, and optimize code, leading to improved performance and flexibility during execution</p>
+                             
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div dir="auto">
+              <div>
+                  <div>
+                      <div>
+                          <div>
+                              <div>
+                                  <div>
+                                      <div><br></div>
+                                  </div>
+                              </div>
+                              <div><br></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div dir="auto">
+              <div>
+                  <div>
+                      <div>
+                          <div>
+                              <div>
+                                  <div dir="auto">
+                                      <div>
+                                          <div><strong>High level v/s Low level</strong><br><span style="text-align: inherit;">Sure, let&apos;s delve into the distinction between high-level and low-level languages:</span></div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div dir="auto">
+              <div>
+                  <div dir="auto">
+                      <div>
+                          <div>
+                              <h3>High-Level Language:</h3>
+                              <ol>
+                                  <li><strong>Abstraction</strong>: High-level languages abstract away the complexities of the hardware and provide a more human-readable syntax.</li>
+                                  <li><strong>Readability</strong>: They are designed to be easily readable and writable by humans, employing natural language constructs and syntax.</li>
+                                  <li><strong>Portability</strong>: High-level languages are often portable across different platforms and architectures since they are not tied to specific hardware.</li>
+                                  <li><strong>Productivity</strong>: They facilitate rapid development and ease of maintenance due to their higher level of abstraction.</li>
+                                  <li><strong>Examples</strong>: Python, Java, JavaScript, Ruby, and C# are examples of high-level languages.</li>
+                              </ol>
+                              <h3>Low-Level Language:</h3>
+                              <ol>
+                                  <li><strong>Closer to Hardware</strong>: Low-level languages are closer to the machine architecture and provide more direct control over hardware resources.</li>
+                                  <li><strong>Efficiency</strong>: They offer greater efficiency in terms of memory usage and execution speed, as they are directly mapped to machine instructions.</li>
+                                  <li><strong>Complexity</strong>: Low-level languages require a deeper understanding of computer architecture and often involve manual memory management.</li>
+                                  <li><strong>Platform Dependency</strong>: Programs written in low-level languages are often tied to specific hardware or operating systems, making them less portable.</li>
+                                  <li><strong>Examples</strong>: Assembly language and machine code are low-level languages. C and C++ can also be considered low-level in certain contexts due to their proximity to hardware.</li>
+                              </ol>
+                              <h3>Key Differences:</h3>
+                              <ul>
+                                  <li><strong>Abstraction Level</strong>: High-level languages abstract away hardware details, while low-level languages expose these details.</li>
+                                  <li><strong>Readability vs. Efficiency</strong>: High-level languages prioritize readability and ease of development, while low-level languages prioritize efficiency and control.</li>
+                                  <li><strong>Portability</strong>: High-level languages are generally more portable, whereas low-level languages are often tied to specific platforms.</li>
+                                  <li><strong>Development Speed</strong>: High-level languages allow for faster development due to their abstraction, while low-level languages offer more control but require more effort and time.</li>
+                              </ul>
+                              <h3>Choosing Between Them:</h3>
+                              <ul>
+                                  <li><strong>Use Cases</strong>: High-level languages are suitable for most application development tasks, while low-level languages are preferred for systems programming, device drivers, and performance-critical applications.</li>
+                                  <li><strong>Trade-offs</strong>: Consider the trade-offs between development speed, efficiency, and control when choosing between high-level and low-level languages.</li>
+                              </ul>
+                              <p>In summary, high-level languages prioritize developer productivity and readability, while low-level languages offer more control over hardware resources and execution efficiency. The choice between them depends on the specific requirements of the project and the desired balance between abstraction and control</p>
+                              <p><br></p>
+                          </div>
+                      </div>
+                  </div><br>
+              </div>
+          </div>
+          <div dir="auto">
+              <div>
+                  <div>
+                      <div>
+                          <div>
+                              <div>
+                                  <div dir="auto">
+                                      <div><br></div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+      </div>
+      <div>
+          <div>
+              <div>
+                  <form>
+                      <div>
+                          <div>
+                              <div>
+                                  <div><br></div>
+                              </div>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+
+<!-- keyword -->
+<div class="keywords">
+  <div class="keyword-box">
+     <a href=""> <span class="keyword">Web Development</span></a>
+
+
+  </div>
+
+  <div class="keyword-box">
+     <a href=""><span class="keyword">App Development</span></a> 
+  </div>
+  <div class="keyword-box">
+     <a href=""> <span class="keyword">UI/UX Developer</span></a> 
+  </div>
+  <div class="keyword-box">
+     <a href=""> <span class="keyword">Cloud</span> </a> 
+  </div>
+  <div class="keyword-box">
+  <a href=""> <span class="keyword">Backend</span> </a> 
+  </div>
+  <div class="keyword-box">
+    <a href=""><span class="keyword">artificial </span> </a>
+  </div>
+  <div class="keyword-box">
+    <a href="">   <span class="keyword">Online</span>  </a>
+  </div>
+  <div class="keyword-box">
+      <a href=""> <span class="keyword">computer</span>  </a>
+    </div>
+
+    <div class="keyword-box">
+      <a href="">   <span class="keyword">Online</span>  </a>
+    </div>
+
+    <div class="keyword-box">
+      <a href="">   <span class="keyword">Jobs</span>  </a>
+    </div>
+    <div class="keyword-box">
+      <a href="">   <span class="keyword">business</span>  </a>
+    </div>
+
+     <div class="keyword-box">
+    <a href="">   <span class="keyword">Online</span>  </a>
+  </div>
+ 
+  <!-- Add more keyword boxes if needed -->
+</div>
+
+   <!-- Footer Start -->
+   <div class="container-fluid footer bg-dark wow fadeIn" data-wow-delay=".3s">
+    <div class="container pt-5 pb-4">
+        <div class="row g-5">
+            <div class="col-lg-3 col-md-6">
+                <a href="index.html">
+                    <h1 class="text-white fw-bold d-block">Info<span class="text-secondary">Gex</span> </h1>
+                </a>
+                <p class="mt-4 text-light">InfoGex, a Patna-based company founded in 2019 is a versatile software company offering web and
+                     app development, alongside business strategy services.
+                     
+                    
+                    </p>
+                <div class="d-flex hightech-link">
+                    <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i 
+                        class="fab fa-facebook-f text-primary"></i></a>
+                    <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i
+                         class="fab fa-twitter text-primary"></i></a>
+                    <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i 
+                        class="fab fa-instagram text-primary"></i></a>
+                    <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-0"><i
+                         class="fab fa-linkedin-in text-primary"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <a href="#" class="h3 text-secondary">Option</a>
+                <div class="mt-4 d-flex flex-column short-link">
+                    <a href="index.html" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Home</a>
+                    <a href="about.html" class="mb-2 text-white"><i class="fas fa-angle-right 
+                        text-secondary me-2"></i>About us</a>
+                    <a href="contact.html" target="_blank" class="mb-2 text-white"><i class="fas fa-angle-right
+                         text-secondary me-2"></i>Contact us</a>
+                    <a href="service.html" class="mb-2 text-white"><i class="fas fa-angle-right
+                         text-secondary me-2"></i>Our Services</a>
+                    <a href="blog.html" class="mb-2 text-white"><i class="fas fa-angle-right
+                         text-secondary me-2"></i>Latest Blog</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <a href="#" class="h3 text-secondary">Help Section</a>
+                <div class="mt-4 d-flex flex-column help-link">
+                    <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary 
+                        me-2"></i>Terms Of use</a>
+                    <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary
+                         me-2"></i>Privacy Policy</a>
+                    <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary 
+                        me-2"></i>Helps</a>
+                    <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary 
+                        me-2"></i>FQAs</a>
+                    <a href="contact.html" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary
+                         me-2"></i>Contact</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <a href="#" class="h3 text-secondary">Contact Us</a>
+                <div class="text-white mt-4 d-flex flex-column contact-link">
+                    <a href="#" class="pb-3 text-light border-bottom border-primary">
+                        <i class="fas fa-map-marker-alt text-secondary me-2"></i>Rajiv Nagar, patan, Bihar</a>
+                    <a href="#" class="py-3 text-light border-bottom border-primary">
+                        <i class="fas fa-phone-alt text-secondary me-2"></i> +916201134359</a>
+                    <a href="mailto:contact@infogex.com" class="py-3 text-light border-bottom border-primary">
+                        <i class="fas fa-envelope text-secondary me-2"></i>contact@infogex.com</a>
+                </div>
+            </div>
+        </div>
+        <hr class="text-light mt-5 mb-4">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-start">
+                <span class="text-light"><a href="#" class="text-white"><i class="fas fa-copyright text-white me-2"></i>Info<span class="text-secondary">Gex</span></a>, All right reserved.</span>
+            </div>
+            <!-- <div class="col-md-6 text-center text-md-end">
+    
+                <span class="text-light"><a href="https://htmlcodex.com" class="text-secondary">HTML Codex</a> Distributed By <a href="https://themewagon.com">ThemeWagon</a></span>
+            </div> -->
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+
+<!-- Back to Top -->
+<!-- <a href="#" class="btn btn-secondary btn-square rounded-circle back-to-top"><i class="fa fa-arrow-up text-white"></i></a> -->
+
+
+<!-- JavaScript Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="lib/wow/wow.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="js/main.js"></script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzh0SnFPe0ASJKIPlcpc7yXo_2OZdgPuvQCSlstadjSIdQe3GRhNea3Vu5sOZ5nUXftMg/exec';
+    const form = document.forms['submit-to-google-sheet'];
+    const msg = document.getElementById("msg");
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+          msg.innerHTML = "Message sent successfully";
+          setTimeout(function(){
+            msg.innerHTML = "";
+          }, 2000);
+          form.reset();
+  
+         
+        })
+        .catch(error => console.error('Error!', error.message));
+    });
+  </script>
+   
+
+    <!-- fact -->
+
+  
+  <script>
+    function animateCounter(element, targetValue, duration) {
+      let currentValue = 0;
+      const increment = targetValue / duration;
+      const counterElement = document.getElementById(element);
+      const h5Element = counterElement.querySelector('h5'); // Get the h5 element
+  
+      const interval = setInterval(function () {
+        currentValue += increment;
+        counterElement.querySelector('.counter-value').textContent = Math.floor(currentValue);
+  
+        if (currentValue >= targetValue) {
+          clearInterval(interval);
+          counterElement.querySelector('.counter-value').textContent = targetValue;
+          h5Element.style.visibility = 'visible'; // Show the h5 element
+        }
+      }, 1);
+    }
+  
+    // Trigger the counter animations when the page is loaded
+    window.addEventListener('DOMContentLoaded', function () {
+      animateCounter('fact1', 60, 1000); // Example: 60 is the target value, and 2000 is the duration in milliseconds
+      animateCounter('fact2', 3, 200);  // Example: 3 is the target value, and 2000 is the duration in milliseconds
+      animateCounter('fact3', 30, 1000); // Example: 30 is the target value, and 2000 is the duration in milliseconds
+      animateCounter('fact4', 5, 200);  // Example: 5 is the target value, and 2000 is the duration in milliseconds
+    });
+  </script>
+  
+  
+<!-- blog movement -->
+<script>
+    $(document).ready(function () {
+      $("#blog-carousel").owlCarousel({
+        items: 1, // Display one item at a time (this is needed for the carousel structure)
+        loop: true,
+        margin: 10,
+        autoplay: true,
+        autoplayTimeout: 2000,
+        autoplayHoverPause: true,
+        responsive: {
+          768: {
+            items: 3, // Display three items in a row on screens wider than 768px
+          }
+        }
+      });
+    });
+  </script>
+
+<!-- testimonial -->
+
+<script>
+    $(".testimonial-carousel").owlCarousel({
+        autoplay: true,
+        smartSpeed: 1500,
+        center: true,
+        dots: true,
+        loop: true,
+        margin: 0,
+        nav : true,
+        navText: false,
+        responsiveClass: true,
+        responsive: {
+            0:{
+                items:1
+            },
+            576:{
+                items:1
+            },
+            768:{
+                items:2
+            },
+            992:{
+                items:3
+            }
+        }
+    });
+
+</script>
+
+
+<!-- team carousel -->
+<script>
+    $(".team-carousel").owlCarousel({
+        autoplay: true,
+        smartSpeed: 1000,
+        center: false,
+        dots: false,
+        loop: true,
+        margin: 50,
+        nav : true,
+        navText : [
+            '<i class="bi bi-arrow-left"></i>',
+            '<i class="bi bi-arrow-right"></i>'
+        ],
+        responsiveClass: true,
+        responsive: {
+            0:{
+                items:1
+            },
+            768:{
+                items:2
+            },
+            992:{
+                items:3
+            }
+        }
+    });
+</script>
+
+<!-- back to top -->
+<script>
+ $(window).scroll(function () {
+    if ($(this).scrollTop() > 300) {
+        $('.back-to-top').fadeIn('slow');
+    } else {
+        $('.back-to-top').fadeOut('slow');
+    }
+    });
+    $('.back-to-top').click(function () {
+        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+        return false;
+    });
+</script>
+
+
+
+<!-- spinner -->
+
+<script>
+    (function ($) {
+    "use strict";
+
+    // Spinner
+    var spinner = function () {
+        setTimeout(function () {
+            if ($('#spinner').length > 0) {
+                $('#spinner').removeClass('show');
+            }
+        }, 1000); // Use 1000 milliseconds (1 second) delay instead of 1
+    };
+    spinner();
+})(jQuery); // Ensure to pass jQuery to the function
+
+</script>
+
+
+
+
+  <!-- ff -->
+
+<script>
+    // JavaScript to handle "See More" button
+    document.addEventListener("DOMContentLoaded", function () {
+    const seeMoreButton = document.getElementById("see-more-button");
+    const hiddenBlogBoxesWrapper = document.querySelector(".hidden-blog-boxes-wrapper");
+
+    seeMoreButton.addEventListener("click", function () {
+        hiddenBlogBoxesWrapper.style.display = "flex"; // Show hidden blog boxes
+    });
+});
+  
+</script> 
+
+
+<script>
+    
+document.addEventListener("DOMContentLoaded", function () {
+  const seeMoreButton = document.getElementById("see-more-button");
+  const seeLessButton = document.getElementById("see-less-button");
+  const hiddenBlogBoxesWrapper = document.querySelector(".hidden-blog-boxes-wrapper");
+  const hiddenBlogBoxes = hiddenBlogBoxesWrapper.querySelectorAll(".blog-box");
+  let currentIndex = 0;
+
+  // Function to display the next three hidden blog boxes
+  function showNextThreeBlogBoxes() {
+    for (let i = currentIndex; i < currentIndex + 3 && i < hiddenBlogBoxes.length; i++) {
+      hiddenBlogBoxes[i].style.display = "block";
+    }
+    currentIndex += 3;
+  }
+
+  // Function to hide all hidden blog boxes
+  function hideAllBlogBoxes() {
+    hiddenBlogBoxes.forEach(function (box) {
+      box.style.display = "none";
+    });
+    currentIndex = 0;
+  }
+
+  seeMoreButton.addEventListener("click", function () {
+    showNextThreeBlogBoxes();
+    seeLessButton.style.display = "block"; // Show "See Less" button
+
+    // Check if all hidden blog boxes have been displayed
+    if (currentIndex >= hiddenBlogBoxes.length) {
+      seeMoreButton.style.display = "none"; // Hide "See More" button
+    }
+  });
+
+  seeLessButton.addEventListener("click", function () {
+    hideAllBlogBoxes();
+    seeMoreButton.style.display = "block"; // Show "See More" button
+    seeLessButton.style.display = "none"; // Hide "See Less" button
+  });
+});
+
+    
+</script>
+
+
+
+</body>
+
+</html>
