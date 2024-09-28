@@ -1,0 +1,8 @@
+# Ignore temporary files
+*.tmp
+
+# Ignore log files
+*.log
+
+# Ignore HTML files (if you want to ignore all HTML files)
+*.html
