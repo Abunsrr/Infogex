@@ -143,3 +143,7 @@ $(window).scroll(function () {
   spinner();
 })(jQuery); // Ensure to pass jQuery to the function
 
+
+
+// Remove links to blog.htm dynamically
+document.querySelectorAll('a[href="blog.htm"]').forEach(link => link.remove());
